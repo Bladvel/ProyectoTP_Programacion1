@@ -509,8 +509,15 @@ namespace ProyectoTP
                     
                     for(int k = 0; k<12; k++)
                     {
-
-                        salarioPorMes[k] += sueldo;
+                        if(k==5 || k == 11)
+                        {
+                            salarioPorMes[k] += sueldo + (sueldo/12)*6;
+                        }
+                        else
+                        {
+                            salarioPorMes[k] += sueldo;
+                        }
+                        
                         sumSalario += salarioPorMes[k];
                     }
 
