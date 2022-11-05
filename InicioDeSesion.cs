@@ -53,7 +53,7 @@ namespace ProyectoTP
 
                         principal.activo();//Variable que habilita si esta activo o no los botones de principal
                         principal.Show();
-                        principal.Toggle();
+                        principal.Toggle(vector);
                         this.Hide();
                         bandera = true;
 

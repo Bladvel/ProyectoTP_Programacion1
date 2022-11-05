@@ -13,8 +13,9 @@ namespace ProyectoTP
 {
     public partial class frmPrincipal : Form
     {
-        frmInicioDeSesion inicioDeSesion;
-        frmRegistro registroUsuario;
+        //Declaro las form extras que utilizo
+        frmInicioDeSesion inicioDeSesion; //Form de inicio de sesion
+        frmRegistro registroUsuario; //Form de registro de usuario
         public bool _activo = false; //bandera que habilita o deshabilita los componentes
         
         public void activo() //metodo para controlar la bandera
@@ -27,7 +28,7 @@ namespace ProyectoTP
             InitializeComponent();
         }
 
-        public void Toggle () //Funcion que habilita o deshabilita los componentes
+        public void Toggle(string[] vector) //Funcion que habilita o deshabilita los componentes
         {
             bool bandera = _activo;
             grpDatosEmpleado.Enabled = bandera;
@@ -38,6 +39,16 @@ namespace ProyectoTP
             lstGeneral.Enabled = bandera;
             btnEliminarCategoria.Enabled = bandera;
             btnEliminarEmpleado.Enabled = bandera;
+            if (bandera)
+            {
+                lblSaludo.Show();
+                lblSaludo.Text = "Hola " + vector[0];
+                lblAntesDeIniciar.Hide();
+            }
+            else
+            {
+                lblSaludo.Hide();
+            }
             
         }
 
@@ -102,7 +113,8 @@ namespace ProyectoTP
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            Toggle();
+            string[] vector = new string[2];
+            Toggle(vector);
             ListarCategoria();
             ListarEmpleado();
             
@@ -421,7 +433,7 @@ namespace ProyectoTP
                 
                 int iterador;
                 float maxSueldo = 0;
-                int maxMes = 0;
+                //int maxMes = 0;
                 int maxEmpleado = 0;
                 float maxSueldoDiciembre = 0;
                 int maxEmpleadoDiciembre = 0;
@@ -531,7 +543,7 @@ namespace ProyectoTP
                             if (salarioPorMes[k] > maxSueldo)
                             {
                                 maxSueldo = salarioPorMes[k];
-                                maxMes = k + 1;
+                                //maxMes = k + 1;
                                 maxEmpleado = ultimoEmpleado;
                             }
                             listaMaximosSueldos.Add(salarioPorMes[k]);
