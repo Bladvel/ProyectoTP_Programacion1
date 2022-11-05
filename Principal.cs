@@ -22,14 +22,18 @@ namespace ProyectoTP
         {
             _activo = true;
         }
+        public void desactivo()//metodo para desactivarla
+        {
+            _activo = false;
+        }
         
         public frmPrincipal()
         {
             InitializeComponent();
         }
 
-        public void Toggle(string[] vector) //Funcion que habilita o deshabilita los componentes
-        {
+        public void Toggle(string[] vector = null) //Funcion que habilita o deshabilita los componentes
+        {//El parametro vector es opcional porque solo lo necesito en un llamado en particular
             bool bandera = _activo;
             grpDatosEmpleado.Enabled = bandera;
             grpCategoria.Enabled = bandera;
@@ -39,11 +43,16 @@ namespace ProyectoTP
             lstGeneral.Enabled = bandera;
             btnEliminarCategoria.Enabled = bandera;
             btnEliminarEmpleado.Enabled = bandera;
+            btnCerrarSesion.Hide();
             if (bandera)
             {
                 lblSaludo.Show();
                 lblSaludo.Text = "Hola " + vector[0];
                 lblAntesDeIniciar.Hide();
+                //Habilito el cierre de sesion
+                btnCerrarSesion.Show();
+                btnIniciarSesion.Hide();
+                btnRegistrarse.Hide();
             }
             else
             {
@@ -51,9 +60,10 @@ namespace ProyectoTP
             }
             
         }
-
+        //Lista donde guardo las categorias
         List<Categoria> ListaCategoria = new List<Categoria> ();
 
+        //Funcion para guardar el objeto categoria que uso para la lista
         Categoria crearObjetoCategoria(string[] vector)
         {
             Categoria _categoria = new Categoria ();
@@ -69,7 +79,7 @@ namespace ProyectoTP
             
         }
 
-        void leerCategoria()
+        void leerCategoria()//Este metodo sirve para agregar las categorias cargadas en el archivo a la listaCategoria
         {
             if(File.Exists(Directory.GetCurrentDirectory() + "/categoria.txt"))
             {
@@ -100,6 +110,7 @@ namespace ProyectoTP
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+            //Inicializo el form de inicio de sesion y paso el form principal como parametro
             inicioDeSesion = new frmInicioDeSesion(this);
             inicioDeSesion.ShowDialog();
             
@@ -107,19 +118,21 @@ namespace ProyectoTP
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
+            //inicializo el form de registro de usuario
             registroUsuario = new frmRegistro();
             registroUsuario.ShowDialog();     
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            string[] vector = new string[2];
-            Toggle(vector);
+            
+            Toggle();
             ListarCategoria();
             ListarEmpleado();
             
         }
 
+        //Funcion para cargar la categoria introducida al archivo
         private void btnCargarCategoria_Click(object sender, EventArgs e)
         {
             FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Append);
@@ -127,14 +140,14 @@ namespace ProyectoTP
             string registro;
             string[] vector;
             
-
+            //Verifico que no se introduzcan campos vacios
             if(txtCodigoCategoria.Text != "" && txtDescripcion.Text !="" && txtSueldoBasico.Text != "" && txtValorHoraExtra.Text !="")
             {
                 registro = txtCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
                 vector = registro.Split(';');
                 if (Int32.TryParse(vector[0], out int number))
                 {
-                    if(number > 6 || number <1)
+                    if(number > 6 || number <1)//Verifico que el codigo de categoria este dentro del rango adecuado
                     {
                         MessageBox.Show("No se puede agregar una categoria mayor a 6 o menor a 1");
                     }
@@ -144,10 +157,7 @@ namespace ProyectoTP
                     }
 
                 }
-
-                
-                
-                
+               
             }
             else
             {
@@ -166,6 +176,7 @@ namespace ProyectoTP
             
         }
 
+        //Funcion que muestra las categorias en el listbox correspondiente
         public void ListarCategoria()
         {
             if(File.Exists(Directory.GetCurrentDirectory() + "/categoria.txt"))
@@ -198,6 +209,7 @@ namespace ProyectoTP
             }
         }
 
+        //Funcion para mostrar en los textbox correspondientes la categoria seleccionada
         private void lstGeneral_SelectedIndexChanged(object sender, EventArgs e)
         {
             string registro;
@@ -212,38 +224,44 @@ namespace ProyectoTP
 
         private void btnModificarCategoria_Click(object sender, EventArgs e)
         {
-            FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Open);
-            FileStream archivoAux = new FileStream(Directory.GetCurrentDirectory() + "/categoriaAux.txt", FileMode.Create);
-            StreamReader lector = new StreamReader(archivo);
-            StreamWriter escritor = new StreamWriter(archivoAux);
-
-            string registro;
-            string[] vector;
-
-            while(lector.Peek() != -1)
+            if (File.Exists(Directory.GetCurrentDirectory() + "/categoria.txt"))
             {
-                registro =lector.ReadLine();
-                vector = registro.Split(';');
+                FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Open);
+                FileStream archivoAux = new FileStream(Directory.GetCurrentDirectory() + "/categoriaAux.txt", FileMode.Create);
+                StreamReader lector = new StreamReader(archivo);
+                StreamWriter escritor = new StreamWriter(archivoAux);
 
-                if(txtCodigoCategoria.Text == vector[0])
+                string registro;
+                string[] vector;
+
+                while (lector.Peek() != -1)
                 {
-                    registro = txtCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
-                    
+                    registro = lector.ReadLine();
+                    vector = registro.Split(';');
+
+                    //Comparo el registro leido del archivo con el dato mostrado en el textbox
+                    if (txtCodigoCategoria.Text == vector[0])
+                    {
+                        registro = txtCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
+
+                    }
+
+                    escritor.WriteLine(registro);
                 }
 
-                escritor.WriteLine(registro);
+                lector.Close();
+                escritor.Close();
+                archivo.Close();
+                archivoAux.Close();
+
+                File.Delete(Directory.GetCurrentDirectory() + "/categoria.txt");
+                File.Move(Directory.GetCurrentDirectory() + "/categoriaAux.txt", Directory.GetCurrentDirectory() + "/categoria.txt");
+
+                //Recargo el listbox y la lista de categorias
+                ListarCategoria();
+
             }
 
-            lector.Close();
-            escritor.Close();
-            archivo.Close();
-            archivoAux.Close();
-
-            File.Delete(Directory.GetCurrentDirectory() + "/categoria.txt");
-            File.Move(Directory.GetCurrentDirectory() + "/categoriaAux.txt", Directory.GetCurrentDirectory() + "/categoria.txt");
-
-            ListarCategoria();
-            
 
         }
 
@@ -405,7 +423,7 @@ namespace ProyectoTP
             ListarEmpleado();
         }
 
-        
+        //Funcion que muestra TODOS los datos de interes de los empleados
         private void btnDatosIndividuales_Click(object sender, EventArgs e)
         {
             if (File.Exists(Directory.GetCurrentDirectory() + "/empleados.txt"))
@@ -413,38 +431,43 @@ namespace ProyectoTP
                 FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/empleados.txt", FileMode.Open);
                 StreamReader lector = new StreamReader(archivo);
 
+                //Strings de uso general para leer los registros del archivo
                 string registro;
                 string[] vector;
                 
+                //Variables para el calculo de los datos de interes usando corte de control
                 float sumSalario = 0;
                 int legajoAnterior;
-                
-                
-                int categoria;
-                float sueldo;
-                float valorHora;
-                float[] salarioPorMes = new float[12];
-                int[] horasExtrasPorMes = new int[12]; 
+                int categoria; //Categoria de un empleado
+                float sueldo;//Sueldo de un empleado
+                float valorHora;//Valor de hora extra de un empleado
+                float[] salarioPorMes = new float[12];//Array de salarios de cada mes de un empleado
+                int[] horasExtrasPorMes = new int[12]; //Array de horas extras de cada mes de un empleado
                 int mes;
                 int horasExtras;
-                int ultimoEmpleado = 0;
+                int ultimoEmpleado = 0;//Variable para saber el legajo del ultimo empleado estudiado
                 float promedioEmpleado;
+                //Lista de sueldos superiores al promedio del empleado
                 List<float> listaMaximosSueldos = new List<float>();
-                
+                //iterador para contabilizar los sueldos guardados en la lista de sueldos superiores al promedio
                 int iterador;
+
+                //Variable para guardar el maximo sueldo
                 float maxSueldo = 0;
                 //int maxMes = 0;
                 int maxEmpleado = 0;
                 float maxSueldoDiciembre = 0;
                 int maxEmpleadoDiciembre = 0;
                 
+                //Variables para el calculo de los empleados que trabajaron menos el primer trimestre del año
                 int minPrimerTrimestre = 99999;
                 List<string> listaHorasPrimerTrimestre = new List<string>();
 
-
+                //Leo un registro del archivo por primera vez
                 registro = lector.ReadLine();
                 vector = registro.Split(';');
 
+                //limpio los listbox para que no se repitan los datos
                 lstSueldoAnual.Items.Clear();
                 lstSueldosMayorPromedio.Items.Clear();
                 lstPrimerTrimestre.Items.Clear();
@@ -455,42 +478,52 @@ namespace ProyectoTP
                     sumSalario = 0;
                     iterador = 0;
                     
-                    
+                    //Leo la categoria para determinar el sueldo del empleado
                     categoria = int.Parse(vector[1]);
+
+                    //Calculo el sueldo leyendo el valor correspondiente a la categoria a la que pertenece
                     sueldo = ListaCategoria[categoria - 1].sueldoBasico;
+                    //Hago lo mismo para el valor de las horas extras del empleado
                     valorHora = ListaCategoria[categoria - 1].valorHoraExtra;
                     
-
+                    //Inicializo los vectores con 0 en todas sus posiciones
                     for(int i = 0; i < 12; i++)
                     {
+                        //Vectores que guardan los datos por mes de un empleado
                         salarioPorMes[i] = 0;
                         horasExtrasPorMes[i] = 0;
                         
                     }
 
+                    //Guardo el legajo del empleado y lo uso para realizar el corte de control
                     legajoAnterior = int.Parse(vector[0]);
+                    //Variable que guarda las horas extras del primer trimestre del año
                     int empleadoHorasPrimerTrimestre = 0; 
 
                     while(lector.Peek() !=-1 && legajoAnterior == int.Parse(vector[0]))
                     {
                         mes = int.Parse( vector[3]);
-                        
+                        //guardo las horas extra por mes del empleado
                         horasExtras = int.Parse(vector[2]);
                         horasExtrasPorMes[mes - 1] = horasExtras;
                         if(mes <= 3)
                         {
+                            //Guardo las horas extras trabajadas en el primer trimestre del año
                             empleadoHorasPrimerTrimestre += horasExtras;
                             
                         }
+                        //Voy cargando en el array lo que gano por las horas extras trabajadas
                         salarioPorMes[mes - 1] += valorHora * horasExtras;
+                        //Guardo el legajo del ultimo empleado para tenerlo como referencia a futuro
                         ultimoEmpleado = int.Parse(vector[0]);
-                            //Avanzo en el archivo
+                        
+                        //Avanzo en el archivo
                         registro = lector.ReadLine();
                         vector = registro.Split(';');
 
-                        /*Hago esto para el caso de la ultima linea del archivo
+                        /*Hago este if para el caso de la ultima linea del archivo
                          * ya que sino, se la salta porque leo al final de cada ciclo 
-                         * y el Peek da -1 pero falta una iteracion
+                         * y el Peek da -1 cuando falta una ultima iteracion
                          */
                         if(lector.Peek() == -1 && legajoAnterior == int.Parse(vector[0]))
                         {
@@ -504,13 +537,17 @@ namespace ProyectoTP
                         
                     }
 
+                    //Calculo el empleado con menos horas el primer trimestre
                     if(empleadoHorasPrimerTrimestre < minPrimerTrimestre)
                     {
+                        //Si las horas trabajadas son menor que el minimo, el nuevo minimo seran las horas de ese empleado
                         minPrimerTrimestre = empleadoHorasPrimerTrimestre;
+                        //Limpio la lista que contiene a los empleados la menor cantidad de horas extras el primer trimestre
                         listaHorasPrimerTrimestre.Clear();
                         listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre);
                     }else if(empleadoHorasPrimerTrimestre == minPrimerTrimestre)
                     {
+                        //En el caso de que el empleado la misma cantidad de horas que el minimo, se agrega a lista sin limpiarla primero
                         listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre);
                     }
 
@@ -518,35 +555,39 @@ namespace ProyectoTP
 
                     
                     
-                    
+                    //Iteracion para rellenar el vector de salario por mes de el empleado estudiado
                     for(int k = 0; k<12; k++)
                     {
                         if(k==5 || k == 11)
                         {
+                            //Se guarda tanto el sueldo como el aguinaldo de junio y diciembre
                             salarioPorMes[k] += sueldo + (sueldo/12)*6;
                         }
                         else
                         {
                             salarioPorMes[k] += sueldo;
                         }
-                        
+                        //Se va acumulando el salario del empleado
                         sumSalario += salarioPorMes[k];
                     }
-
+                    //Se calcula el promedio de sueldo del empleado
                     promedioEmpleado = sumSalario/12;
 
-                    
+                    //Iteracion para obtener los salarios superiores a su promedio de sueldos
                     for(int k = 0; k<12; k++)
                     {
                         if(salarioPorMes[k] > promedioEmpleado )
                         {
+                            //Se compara el salario mensual con el maximo sueldo para referencia a futuro
                             if (salarioPorMes[k] > maxSueldo)
                             {
                                 maxSueldo = salarioPorMes[k];
                                 //maxMes = k + 1;
                                 maxEmpleado = ultimoEmpleado;
                             }
+                            //Se guardan los salarios superiores al promedio en la lista de sueldos maximos
                             listaMaximosSueldos.Add(salarioPorMes[k]);
+                            //Muestro los resultados en el listbox correspondiente
                             lstSueldosMayorPromedio.Items.Add("Para " + ultimoEmpleado + " es " + listaMaximosSueldos[iterador]);
                             iterador++;
                         }
@@ -555,11 +596,13 @@ namespace ProyectoTP
                         
                     }
 
+                    //Limpio la lista para que inicialice vacia para el siguiente empleado a estudiar
                     listaMaximosSueldos.Clear();
                     
-
+                    //Se agregar al listbox el salario anual de cada empleado
                     lstSueldoAnual.Items.Add( "Para " +  ultimoEmpleado + " es " + sumSalario);
 
+                    //Comparo el salario de diciembre del empleado estudiado con el sueldo maximo registrado para diciembre (inicializado en 0)
                     if (salarioPorMes[11] > maxSueldoDiciembre)
                     {
                         maxSueldoDiciembre = salarioPorMes[11];
@@ -570,13 +613,13 @@ namespace ProyectoTP
  
                 }
 
-                
+                //Se agrega al listbox correspondiente los empleados con la menor cantidad de horas trabajadas el primer trimestre del año
                 for(int i = 0; i< listaHorasPrimerTrimestre.Count; i++)
                 {
                     lstPrimerTrimestre.Items.Add(listaHorasPrimerTrimestre[i]);
                 }
                 
-                //Aqui estan los calculos de las operaciones generales
+                
                 txtMaximoSueldo.Text = "El maximo sueldo fue de " + maxSueldo + " a " + maxEmpleado;
                 txtCobroDiciembre.Text = "El empleado quien cobro mas en diciembre fue " + maxEmpleadoDiciembre + " con " + maxSueldoDiciembre;
                 archivo.Close();
@@ -586,27 +629,16 @@ namespace ProyectoTP
 
         }
 
-        
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            btnIniciarSesion.Show();
+            btnRegistrarse.Show();
+            this.desactivo();
+            Toggle();
+        }
     }
 
 
 
-        //void ActualizarLista()
-        //{
-        //    lstLista.Items.Clear();
-        //    int i;
-        //    for (i = 0; i < ListaCategoria.Count; i++) //que sea menor o igual y el count -1
-        //    {
-        //        lstLista.Items.Add(ListaCategoria[i].codigo + " " + ListaCategoria[i].descripcion +" " + ListaCategoria[i].sueldoBasico + " " + ListaCategoria[i].valorHoraExtra);
-        //    }
-        //}
-        //private void btnAgregarlista_Click(object sender, EventArgs e)
-        //{
-        //    ActualizarLista();
-        //}
 }
 
-//1 es 1050000
-//2 es 1320000
-//3 es 1938000
-//4 es 2471000

@@ -58,7 +58,8 @@ namespace ProyectoTP
                         bandera = true;
 
 
-                    }    
+                    }
+                    
                 } while (lector.Peek() != -1);
 
                 if (!bandera)
@@ -68,36 +69,6 @@ namespace ProyectoTP
                         txtContrasena.Clear();
                         txtUsuario.Focus();
                 }
-
-                /*
-
-                while (lector.Peek() != -1)
-                {
-                    registo = lector.ReadLine();
-                    vector = registo.Split(';');
-
-                    if (vector[0] == txtUsuario.Text && vector[1] == txtContrasena.Text)
-                    {
-
-                        principal = new frmPrincipal();
-                        principal.Show();
-                        this.Hide();
-                        
-                        
-                    }
-
-                    
-                    else
-                    {
-                        MessageBox.Show("Datos de ingreso incorrectos. Por favor introducir de nuevo");
-                        txtUsuario.Clear();
-                        txtContrasena.Clear();
-                        txtUsuario.Focus();
-                        
-                    }
-
-                }*/
-
 
                 lector.Close();
                 archivo.Close();

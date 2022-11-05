@@ -56,6 +56,7 @@
             this.lstSueldosMayorPromedio = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtCobroDiciembre = new System.Windows.Forms.TextBox();
+            this.lstPrimerTrimestre = new System.Windows.Forms.ListBox();
             this.lstSueldoAnual = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtMaximoSueldo = new System.Windows.Forms.TextBox();
@@ -69,7 +70,7 @@
             this.lblSaludo = new System.Windows.Forms.Label();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnEliminarEmpleado = new System.Windows.Forms.Button();
-            this.lstPrimerTrimestre = new System.Windows.Forms.ListBox();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.grpCategoria.SuspendLayout();
             this.grpEmpleado.SuspendLayout();
             this.grpDatosEmpleado.SuspendLayout();
@@ -375,6 +376,15 @@
             this.txtCobroDiciembre.Size = new System.Drawing.Size(204, 46);
             this.txtCobroDiciembre.TabIndex = 2;
             // 
+            // lstPrimerTrimestre
+            // 
+            this.lstPrimerTrimestre.FormattingEnabled = true;
+            this.lstPrimerTrimestre.Location = new System.Drawing.Point(112, 331);
+            this.lstPrimerTrimestre.Margin = new System.Windows.Forms.Padding(2);
+            this.lstPrimerTrimestre.Name = "lstPrimerTrimestre";
+            this.lstPrimerTrimestre.Size = new System.Drawing.Size(204, 69);
+            this.lstPrimerTrimestre.TabIndex = 2;
+            // 
             // lstSueldoAnual
             // 
             this.lstSueldoAnual.FormattingEnabled = true;
@@ -476,7 +486,7 @@
             // lblSaludo
             // 
             this.lblSaludo.AutoSize = true;
-            this.lblSaludo.Location = new System.Drawing.Point(31, 40);
+            this.lblSaludo.Location = new System.Drawing.Point(34, 9);
             this.lblSaludo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSaludo.Name = "lblSaludo";
             this.lblSaludo.Size = new System.Drawing.Size(35, 13);
@@ -505,14 +515,15 @@
             this.btnEliminarEmpleado.UseVisualStyleBackColor = true;
             this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
             // 
-            // lstPrimerTrimestre
+            // btnCerrarSesion
             // 
-            this.lstPrimerTrimestre.FormattingEnabled = true;
-            this.lstPrimerTrimestre.Location = new System.Drawing.Point(112, 331);
-            this.lstPrimerTrimestre.Margin = new System.Windows.Forms.Padding(2);
-            this.lstPrimerTrimestre.Name = "lstPrimerTrimestre";
-            this.lstPrimerTrimestre.Size = new System.Drawing.Size(204, 69);
-            this.lstPrimerTrimestre.TabIndex = 2;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(253, 32);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(94, 28);
+            this.btnCerrarSesion.TabIndex = 8;
+            this.btnCerrarSesion.Text = "Cerrar Sesion";
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // frmPrincipal
             // 
@@ -521,6 +532,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(600, 990);
+            this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnEliminarEmpleado);
             this.Controls.Add(this.btnEliminarCategoria);
             this.Controls.Add(this.lblSaludo);
@@ -592,5 +604,6 @@
         private System.Windows.Forms.ListBox lstSueldosMayorPromedio;
         private System.Windows.Forms.ListBox lstSueldoAnual;
         private System.Windows.Forms.ListBox lstPrimerTrimestre;
+        private System.Windows.Forms.Button btnCerrarSesion;
     }
 }
