@@ -33,12 +33,56 @@ namespace ProyectoTP
             grpDatosEmpleado.Enabled = bandera;
             grpCategoria.Enabled = bandera;
             grpEmpleado.Enabled = bandera;
-            grpGeneral.Enabled = bandera;
+            
             lstEmpleados.Enabled = bandera;
             lstGeneral.Enabled = bandera;
             btnEliminarCategoria.Enabled = bandera;
             btnEliminarEmpleado.Enabled = bandera;
+            
+        }
 
+        List<Categoria> ListaCategoria = new List<Categoria> ();
+
+        Categoria crearObjetoCategoria(string[] vector)
+        {
+            Categoria _categoria = new Categoria ();
+            if (Int32.TryParse(vector[0], out int val))
+            {
+                _categoria.codigo = val;
+            }
+            _categoria.descripcion = vector[1];
+
+            _categoria.sueldoBasico = float.Parse(vector[2]);
+            _categoria.valorHoraExtra = float.Parse(vector[3]);
+            return _categoria;
+            
+        }
+
+        void leerCategoria()
+        {
+            if(File.Exists(Directory.GetCurrentDirectory() + "/categoria.txt"))
+            {
+                FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Open);
+                StreamReader lector = new StreamReader(archivo);
+                Categoria _categoria = new Categoria();
+                string registro;
+                string[] vector;
+                
+                ListaCategoria.Clear();
+
+                while (lector.Peek() != -1)
+                {
+
+                    registro = lector.ReadLine();
+                    vector = registro.Split(';');
+                    
+                    ListaCategoria.Add(crearObjetoCategoria(vector));
+                }
+
+                archivo.Close();
+                lector.Close();
+            }
+           
         }
 
         
@@ -61,6 +105,7 @@ namespace ProyectoTP
             Toggle();
             ListarCategoria();
             ListarEmpleado();
+            
         }
 
         private void btnCargarCategoria_Click(object sender, EventArgs e)
@@ -68,11 +113,29 @@ namespace ProyectoTP
             FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Append);
             StreamWriter escritor = new StreamWriter(archivo);
             string registro;
+            string[] vector;
+            
 
             if(txtCodigoCategoria.Text != "" && txtDescripcion.Text !="" && txtSueldoBasico.Text != "" && txtValorHoraExtra.Text !="")
             {
                 registro = txtCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
-                escritor.WriteLine(registro);
+                vector = registro.Split(';');
+                if (Int32.TryParse(vector[0], out int number))
+                {
+                    if(number > 6 || number <1)
+                    {
+                        MessageBox.Show("No se puede agregar una categoria mayor a 6 o menor a 1");
+                    }
+                    else
+                    {
+                        escritor.WriteLine(registro);
+                    }
+
+                }
+
+                
+                
+                
             }
             else
             {
@@ -84,6 +147,7 @@ namespace ProyectoTP
                 txtCodigoCategoria.Focus();
             }
 
+            
             escritor.Close();
             archivo.Close();
             ListarCategoria();
@@ -98,11 +162,15 @@ namespace ProyectoTP
                 FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Open);
                 StreamReader lector = new StreamReader(archivo);
                 string registro;
+                
 
                 while(lector.Peek() != -1)
                 {
                     registro = lector.ReadLine();
+                    
+                    
                     lstGeneral.Items.Add(registro);
+                    
                 }
                 lector.Close();
                 archivo.Close();
@@ -112,6 +180,9 @@ namespace ProyectoTP
                 txtSueldoBasico.Clear();
                 txtValorHoraExtra.Clear();
                 txtCodigoCategoria.Focus();
+
+                leerCategoria();
+                
             }
         }
 
@@ -160,6 +231,7 @@ namespace ProyectoTP
             File.Move(Directory.GetCurrentDirectory() + "/categoriaAux.txt", Directory.GetCurrentDirectory() + "/categoria.txt");
 
             ListarCategoria();
+            
 
         }
 
@@ -191,6 +263,7 @@ namespace ProyectoTP
 
             File.Delete(Directory.GetCurrentDirectory() + "/categoria.txt");
             File.Move(Directory.GetCurrentDirectory() + "/categoriaAux.txt", Directory.GetCurrentDirectory() + "/categoria.txt");
+            
             ListarCategoria();
         }
 
@@ -319,5 +392,202 @@ namespace ProyectoTP
             File.Move(Directory.GetCurrentDirectory() + "/empleadosAux.txt", Directory.GetCurrentDirectory() + "/empleados.txt");
             ListarEmpleado();
         }
+
+        
+        private void btnDatosIndividuales_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(Directory.GetCurrentDirectory() + "/empleados.txt"))
+            {
+                FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/empleados.txt", FileMode.Open);
+                StreamReader lector = new StreamReader(archivo);
+
+                string registro;
+                string[] vector;
+                
+                float sumSalario = 0;
+                int legajoAnterior;
+                
+                
+                int categoria;
+                float sueldo;
+                float valorHora;
+                float[] salarioPorMes = new float[12];
+                int[] horasExtrasPorMes = new int[12]; 
+                int mes;
+                int horasExtras;
+                int ultimoEmpleado = 0;
+                float promedioEmpleado;
+                List<float> listaMaximosSueldos = new List<float>();
+                
+                int iterador;
+                float maxSueldo = 0;
+                int maxMes = 0;
+                int maxEmpleado = 0;
+                float maxSueldoDiciembre = 0;
+                int maxEmpleadoDiciembre = 0;
+                
+                int minPrimerTrimestre = 99999;
+                List<string> listaHorasPrimerTrimestre = new List<string>();
+
+
+                registro = lector.ReadLine();
+                vector = registro.Split(';');
+
+                lstSueldoAnual.Items.Clear();
+                lstSueldosMayorPromedio.Items.Clear();
+                lstPrimerTrimestre.Items.Clear();
+
+                while (lector.Peek() != -1)
+                {
+                    
+                    sumSalario = 0;
+                    iterador = 0;
+                    
+                    
+                    categoria = int.Parse(vector[1]);
+                    sueldo = ListaCategoria[categoria - 1].sueldoBasico;
+                    valorHora = ListaCategoria[categoria - 1].valorHoraExtra;
+                    
+
+                    for(int i = 0; i < 12; i++)
+                    {
+                        salarioPorMes[i] = 0;
+                        horasExtrasPorMes[i] = 0;
+                        
+                    }
+
+                    legajoAnterior = int.Parse(vector[0]);
+                    int empleadoHorasPrimerTrimestre = 0; 
+
+                    while(lector.Peek() !=-1 && legajoAnterior == int.Parse(vector[0]))
+                    {
+                        mes = int.Parse( vector[3]);
+                        
+                        horasExtras = int.Parse(vector[2]);
+                        horasExtrasPorMes[mes - 1] = horasExtras;
+                        if(mes <= 3)
+                        {
+                            empleadoHorasPrimerTrimestre += horasExtras;
+                            
+                        }
+                        salarioPorMes[mes - 1] += valorHora * horasExtras;
+                        ultimoEmpleado = int.Parse(vector[0]);
+                            //Avanzo en el archivo
+                        registro = lector.ReadLine();
+                        vector = registro.Split(';');
+
+                        /*Hago esto para el caso de la ultima linea del archivo
+                         * ya que sino, se la salta porque leo al final de cada ciclo 
+                         * y el Peek da -1 pero falta una iteracion
+                         */
+                        if(lector.Peek() == -1 && legajoAnterior == int.Parse(vector[0]))
+                        {
+                            mes = int.Parse(vector[3]);
+
+                            horasExtras = int.Parse(vector[2]);
+                            
+                            salarioPorMes[mes - 1] += valorHora * horasExtras;
+                            ultimoEmpleado = int.Parse(vector[0]);
+                        }
+                        
+                    }
+
+                    if(empleadoHorasPrimerTrimestre < minPrimerTrimestre)
+                    {
+                        minPrimerTrimestre = empleadoHorasPrimerTrimestre;
+                        listaHorasPrimerTrimestre.Clear();
+                        listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre);
+                    }else if(empleadoHorasPrimerTrimestre == minPrimerTrimestre)
+                    {
+                        listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre);
+                    }
+
+                   
+
+                    
+                    
+                    
+                    for(int k = 0; k<12; k++)
+                    {
+
+                        salarioPorMes[k] += sueldo;
+                        sumSalario += salarioPorMes[k];
+                    }
+
+                    promedioEmpleado = sumSalario/12;
+
+                    
+                    for(int k = 0; k<12; k++)
+                    {
+                        if(salarioPorMes[k] > promedioEmpleado )
+                        {
+                            if (salarioPorMes[k] > maxSueldo)
+                            {
+                                maxSueldo = salarioPorMes[k];
+                                maxMes = k + 1;
+                                maxEmpleado = ultimoEmpleado;
+                            }
+                            listaMaximosSueldos.Add(salarioPorMes[k]);
+                            lstSueldosMayorPromedio.Items.Add("Para " + ultimoEmpleado + " es " + listaMaximosSueldos[iterador]);
+                            iterador++;
+                        }
+
+                        
+                        
+                    }
+
+                    listaMaximosSueldos.Clear();
+                    
+
+                    lstSueldoAnual.Items.Add( "Para " +  ultimoEmpleado + " es " + sumSalario);
+
+                    if (salarioPorMes[11] > maxSueldoDiciembre)
+                    {
+                        maxSueldoDiciembre = salarioPorMes[11];
+                        maxEmpleadoDiciembre = ultimoEmpleado;
+                    }
+
+                    
+ 
+                }
+
+                
+                for(int i = 0; i< listaHorasPrimerTrimestre.Count; i++)
+                {
+                    lstPrimerTrimestre.Items.Add(listaHorasPrimerTrimestre[i]);
+                }
+                
+                //Aqui estan los calculos de las operaciones generales
+                txtMaximoSueldo.Text = "El maximo sueldo fue de " + maxSueldo + " a " + maxEmpleado;
+                txtCobroDiciembre.Text = "El empleado quien cobro mas en diciembre fue " + maxEmpleadoDiciembre + " con " + maxSueldoDiciembre;
+                archivo.Close();
+                lector.Close();
+            }
+
+
+        }
+
+        
     }
+
+
+
+        //void ActualizarLista()
+        //{
+        //    lstLista.Items.Clear();
+        //    int i;
+        //    for (i = 0; i < ListaCategoria.Count; i++) //que sea menor o igual y el count -1
+        //    {
+        //        lstLista.Items.Add(ListaCategoria[i].codigo + " " + ListaCategoria[i].descripcion +" " + ListaCategoria[i].sueldoBasico + " " + ListaCategoria[i].valorHoraExtra);
+        //    }
+        //}
+        //private void btnAgregarlista_Click(object sender, EventArgs e)
+        //{
+        //    ActualizarLista();
+        //}
 }
+
+//1 es 1050000
+//2 es 1320000
+//3 es 1938000
+//4 es 2471000
