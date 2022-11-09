@@ -63,7 +63,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnDatosIndividuales = new System.Windows.Forms.Button();
+            this.btnMostrarDatos = new System.Windows.Forms.Button();
             this.lblAntesDeIniciar = new System.Windows.Forms.Label();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.btnRegistrarse = new System.Windows.Forms.Button();
@@ -338,12 +338,12 @@
             this.grpDatosEmpleado.Controls.Add(this.label11);
             this.grpDatosEmpleado.Controls.Add(this.label12);
             this.grpDatosEmpleado.Controls.Add(this.label16);
-            this.grpDatosEmpleado.Controls.Add(this.btnDatosIndividuales);
-            this.grpDatosEmpleado.Location = new System.Drawing.Point(135, 502);
+            this.grpDatosEmpleado.Controls.Add(this.btnMostrarDatos);
+            this.grpDatosEmpleado.Location = new System.Drawing.Point(644, 110);
             this.grpDatosEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.grpDatosEmpleado.Name = "grpDatosEmpleado";
             this.grpDatosEmpleado.Padding = new System.Windows.Forms.Padding(2);
-            this.grpDatosEmpleado.Size = new System.Drawing.Size(330, 462);
+            this.grpDatosEmpleado.Size = new System.Drawing.Size(395, 487);
             this.grpDatosEmpleado.TabIndex = 3;
             this.grpDatosEmpleado.TabStop = false;
             this.grpDatosEmpleado.Text = "Datos a saber";
@@ -354,35 +354,35 @@
             this.lstSueldosMayorPromedio.Location = new System.Drawing.Point(112, 119);
             this.lstSueldosMayorPromedio.Margin = new System.Windows.Forms.Padding(2);
             this.lstSueldosMayorPromedio.Name = "lstSueldosMayorPromedio";
-            this.lstSueldosMayorPromedio.Size = new System.Drawing.Size(204, 95);
+            this.lstSueldosMayorPromedio.Size = new System.Drawing.Size(279, 95);
             this.lstSueldosMayorPromedio.TabIndex = 2;
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(10, 331);
+            this.label14.Location = new System.Drawing.Point(10, 348);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 50);
+            this.label14.Size = new System.Drawing.Size(98, 55);
             this.label14.TabIndex = 1;
-            this.label14.Text = "Quien trabajo menos horas extras el primer trimestre\r\n";
+            this.label14.Text = "Quien trabajo menos horas extras el primer trimestre\r\n del año";
             // 
             // txtCobroDiciembre
             // 
-            this.txtCobroDiciembre.Location = new System.Drawing.Point(112, 264);
+            this.txtCobroDiciembre.Location = new System.Drawing.Point(112, 281);
             this.txtCobroDiciembre.Margin = new System.Windows.Forms.Padding(2);
             this.txtCobroDiciembre.Multiline = true;
             this.txtCobroDiciembre.Name = "txtCobroDiciembre";
             this.txtCobroDiciembre.ReadOnly = true;
-            this.txtCobroDiciembre.Size = new System.Drawing.Size(204, 46);
+            this.txtCobroDiciembre.Size = new System.Drawing.Size(279, 46);
             this.txtCobroDiciembre.TabIndex = 2;
             // 
             // lstPrimerTrimestre
             // 
             this.lstPrimerTrimestre.FormattingEnabled = true;
-            this.lstPrimerTrimestre.Location = new System.Drawing.Point(112, 331);
+            this.lstPrimerTrimestre.Location = new System.Drawing.Point(112, 348);
             this.lstPrimerTrimestre.Margin = new System.Windows.Forms.Padding(2);
             this.lstPrimerTrimestre.Name = "lstPrimerTrimestre";
-            this.lstPrimerTrimestre.Size = new System.Drawing.Size(204, 69);
+            this.lstPrimerTrimestre.Size = new System.Drawing.Size(279, 69);
             this.lstPrimerTrimestre.TabIndex = 2;
             // 
             // lstSueldoAnual
@@ -391,12 +391,12 @@
             this.lstSueldoAnual.Location = new System.Drawing.Point(112, 35);
             this.lstSueldoAnual.Margin = new System.Windows.Forms.Padding(2);
             this.lstSueldoAnual.Name = "lstSueldoAnual";
-            this.lstSueldoAnual.Size = new System.Drawing.Size(204, 69);
+            this.lstSueldoAnual.Size = new System.Drawing.Size(279, 69);
             this.lstSueldoAnual.TabIndex = 2;
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(10, 264);
+            this.label15.Location = new System.Drawing.Point(10, 281);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(86, 43);
@@ -409,52 +409,51 @@
             this.txtMaximoSueldo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaximoSueldo.Name = "txtMaximoSueldo";
             this.txtMaximoSueldo.ReadOnly = true;
-            this.txtMaximoSueldo.Size = new System.Drawing.Size(204, 20);
+            this.txtMaximoSueldo.Size = new System.Drawing.Size(279, 20);
             this.txtMaximoSueldo.TabIndex = 2;
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(16, 137);
+            this.label11.Location = new System.Drawing.Point(10, 119);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 58);
+            this.label11.Size = new System.Drawing.Size(98, 64);
             this.label11.TabIndex = 1;
-            this.label11.Text = "Sueldos que superan el promedio de cada uno";
+            this.label11.Text = "Sueldos que superan el salario promedio de cada empleado";
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 63);
+            this.label12.Location = new System.Drawing.Point(10, 35);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 13);
+            this.label12.Size = new System.Drawing.Size(86, 33);
             this.label12.TabIndex = 1;
-            this.label12.Text = "Sueldo anual";
+            this.label12.Text = "Sueldo anual de cada empleado";
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(10, 232);
+            this.label16.Location = new System.Drawing.Point(10, 230);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(86, 13);
+            this.label16.Size = new System.Drawing.Size(98, 35);
             this.label16.TabIndex = 1;
             this.label16.Text = "Maximo sueldo pagado en un mes";
             // 
-            // btnDatosIndividuales
+            // btnMostrarDatos
             // 
-            this.btnDatosIndividuales.Location = new System.Drawing.Point(118, 414);
-            this.btnDatosIndividuales.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDatosIndividuales.Name = "btnDatosIndividuales";
-            this.btnDatosIndividuales.Size = new System.Drawing.Size(94, 28);
-            this.btnDatosIndividuales.TabIndex = 0;
-            this.btnDatosIndividuales.Text = "Mostrar datos";
-            this.btnDatosIndividuales.UseVisualStyleBackColor = true;
-            this.btnDatosIndividuales.Click += new System.EventHandler(this.btnDatosIndividuales_Click);
+            this.btnMostrarDatos.Location = new System.Drawing.Point(163, 431);
+            this.btnMostrarDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMostrarDatos.Name = "btnMostrarDatos";
+            this.btnMostrarDatos.Size = new System.Drawing.Size(94, 28);
+            this.btnMostrarDatos.TabIndex = 0;
+            this.btnMostrarDatos.Text = "Mostrar datos";
+            this.btnMostrarDatos.UseVisualStyleBackColor = true;
+            this.btnMostrarDatos.Click += new System.EventHandler(this.btnMostrarDatos_Click);
             // 
             // lblAntesDeIniciar
             // 
             this.lblAntesDeIniciar.AutoSize = true;
-            this.lblAntesDeIniciar.Location = new System.Drawing.Point(31, 7);
+            this.lblAntesDeIniciar.Location = new System.Drawing.Point(227, 9);
             this.lblAntesDeIniciar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAntesDeIniciar.Name = "lblAntesDeIniciar";
             this.lblAntesDeIniciar.Size = new System.Drawing.Size(200, 13);
@@ -463,7 +462,7 @@
             // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(197, 32);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(435, 31);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(94, 28);
@@ -474,7 +473,7 @@
             // 
             // btnRegistrarse
             // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(309, 32);
+            this.btnRegistrarse.Location = new System.Drawing.Point(547, 31);
             this.btnRegistrarse.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrarse.Name = "btnRegistrarse";
             this.btnRegistrarse.Size = new System.Drawing.Size(94, 28);
@@ -486,7 +485,7 @@
             // lblSaludo
             // 
             this.lblSaludo.AutoSize = true;
-            this.lblSaludo.Location = new System.Drawing.Point(34, 9);
+            this.lblSaludo.Location = new System.Drawing.Point(230, 11);
             this.lblSaludo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSaludo.Name = "lblSaludo";
             this.lblSaludo.Size = new System.Drawing.Size(35, 13);
@@ -517,7 +516,7 @@
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Location = new System.Drawing.Point(253, 32);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(491, 31);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(94, 28);
             this.btnCerrarSesion.TabIndex = 8;
@@ -531,7 +530,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(600, 990);
+            this.ClientSize = new System.Drawing.Size(1118, 615);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnEliminarEmpleado);
             this.Controls.Add(this.btnEliminarCategoria);
@@ -587,7 +586,7 @@
         private System.Windows.Forms.GroupBox grpDatosEmpleado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnDatosIndividuales;
+        private System.Windows.Forms.Button btnMostrarDatos;
         private System.Windows.Forms.TextBox txtCobroDiciembre;
         private System.Windows.Forms.TextBox txtMaximoSueldo;
         private System.Windows.Forms.Label label14;

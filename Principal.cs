@@ -35,17 +35,33 @@ namespace ProyectoTP
         public void Toggle(string[] vector = null) //Funcion que habilita o deshabilita los componentes
         {//El parametro vector es opcional porque solo lo necesito en un llamado en particular
             bool bandera = _activo;
+            /*
             grpDatosEmpleado.Enabled = bandera;
             grpCategoria.Enabled = bandera;
             grpEmpleado.Enabled = bandera;
             
-            lstEmpleados.Enabled = bandera;
-            lstGeneral.Enabled = bandera;
+            
             btnEliminarCategoria.Enabled = bandera;
             btnEliminarEmpleado.Enabled = bandera;
             btnCerrarSesion.Hide();
+            */
+
+            
+            grpDatosEmpleado.Visible = bandera;
+            grpCategoria.Visible = bandera;
+            grpEmpleado.Visible = bandera;
+
+
+            btnEliminarCategoria.Visible = bandera;
+            btnEliminarEmpleado.Visible = bandera;
+            btnCerrarSesion.Hide();
             if (bandera)
             {
+                
+
+                lstEmpleados.Show();
+                lstGeneral.Show();
+
                 lblSaludo.Show();
                 lblSaludo.Text = "Hola " + vector[0];
                 lblAntesDeIniciar.Hide();
@@ -56,6 +72,9 @@ namespace ProyectoTP
             }
             else
             {
+                lblAntesDeIniciar.Show();
+                lstGeneral.Hide();
+                lstEmpleados.Hide();
                 lblSaludo.Hide();
             }
             
@@ -185,11 +204,13 @@ namespace ProyectoTP
                 FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Open);
                 StreamReader lector = new StreamReader(archivo);
                 string registro;
+                string[] vector;
                 
 
                 while(lector.Peek() != -1)
                 {
                     registro = lector.ReadLine();
+                    
                     
                     
                     lstGeneral.Items.Add(registro);
@@ -428,7 +449,8 @@ namespace ProyectoTP
         }
 
         //Funcion que muestra TODOS los datos de interes de los empleados
-        private void btnDatosIndividuales_Click(object sender, EventArgs e)
+        //btnDatosIndividuales_Click
+        private void btnMostrarDatos_Click(object sender, EventArgs e)
         {
             if (File.Exists(Directory.GetCurrentDirectory() + "/empleados.txt"))
             {
@@ -569,11 +591,11 @@ namespace ProyectoTP
                         minPrimerTrimestre = empleadoHorasPrimerTrimestre;
                         //Limpio la lista que contiene a los empleados la menor cantidad de horas extras el primer trimestre
                         listaHorasPrimerTrimestre.Clear();
-                        listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre);
+                        listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre + " horas.");
                     }else if(empleadoHorasPrimerTrimestre == minPrimerTrimestre)
                     {
                         //En el caso de que el empleado la misma cantidad de horas que el minimo, se agrega a lista sin limpiarla primero
-                        listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre);
+                        listaHorasPrimerTrimestre.Add("El empleado con menos horas fue " + ultimoEmpleado + " con " + minPrimerTrimestre + " horas.");
                     }
 
                    
@@ -613,7 +635,7 @@ namespace ProyectoTP
                             //Se guardan los salarios superiores al promedio en la lista de sueldos maximos
                             listaMaximosSueldos.Add(salarioPorMes[k]);
                             //Muestro los resultados en el listbox correspondiente
-                            lstSueldosMayorPromedio.Items.Add("Para " + ultimoEmpleado + " es " + listaMaximosSueldos[iterador]);
+                            lstSueldosMayorPromedio.Items.Add("Para el empleado " + ultimoEmpleado + " el sueldo fue de $" + listaMaximosSueldos[iterador]);
                             iterador++;
                         }
 
@@ -625,7 +647,7 @@ namespace ProyectoTP
                     listaMaximosSueldos.Clear();
                     
                     //Se agregar al listbox el salario anual de cada empleado
-                    lstSueldoAnual.Items.Add( "Para " +  ultimoEmpleado + " es " + sumSalario);
+                    lstSueldoAnual.Items.Add( "Para el empleado " +  ultimoEmpleado + " el sueldo anual es de $" + sumSalario );
 
                     //Comparo el salario de diciembre del empleado estudiado con el sueldo maximo registrado para diciembre (inicializado en 0)
                     if (salarioPorMes[11] > maxSueldoDiciembre)
@@ -645,8 +667,8 @@ namespace ProyectoTP
                 }
                 
                 
-                txtMaximoSueldo.Text = "El maximo sueldo fue de " + maxSueldo + " a " + maxEmpleado;
-                txtCobroDiciembre.Text = "El empleado quien cobro mas en diciembre fue " + maxEmpleadoDiciembre + " con " + maxSueldoDiciembre;
+                txtMaximoSueldo.Text = "El maximo sueldo fue de $" + maxSueldo + " al empleado " + maxEmpleado + ".";
+                txtCobroDiciembre.Text = "El empleado quien cobro mas en diciembre fue " + maxEmpleadoDiciembre + " con $" + maxSueldoDiciembre + ".";
                 archivo.Close();
                 lector.Close();
             }
