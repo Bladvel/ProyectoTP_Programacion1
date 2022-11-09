@@ -441,7 +441,7 @@ namespace ProyectoTP
                 
                 //Variables para el calculo de los datos de interes usando corte de control
                 float sumSalario = 0;
-                int legajoAnterior;
+                int legajoAnterior = 0;
                 int categoria; //Categoria de un empleado
                 float sueldo;//Sueldo de un empleado
                 float valorHora;//Valor de hora extra de un empleado
@@ -476,7 +476,7 @@ namespace ProyectoTP
                 lstSueldosMayorPromedio.Items.Clear();
                 lstPrimerTrimestre.Items.Clear();
 
-                while (!lector.EndOfStream)
+                while (!lector.EndOfStream || (lector.EndOfStream && legajoAnterior != int.Parse(vector[0])))
                 {
                     
                     sumSalario = 0;
@@ -505,7 +505,7 @@ namespace ProyectoTP
                     int empleadoHorasPrimerTrimestre = 0; 
                     
 
-                    while(!lector.EndOfStream && legajoAnterior == int.Parse(vector[0]) )
+                    while((!lector.EndOfStream && legajoAnterior == int.Parse(vector[0])) || (lector.EndOfStream && legajoAnterior == int.Parse(vector[0])))
                     {
                         mes = int.Parse( vector[3]);
                         //guardo las horas extra por mes del empleado
@@ -524,6 +524,12 @@ namespace ProyectoTP
                         
                         //Avanzo en el archivo
                         registro = lector.ReadLine();
+                        
+                        if(registro == null)
+                        {
+                            break;
+                        }
+                        
                         vector = registro.Split(';');
 
                         /*Hago este if para el caso de la ultima linea del archivo
