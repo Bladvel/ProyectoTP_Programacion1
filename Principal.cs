@@ -372,7 +372,7 @@ namespace ProyectoTP
                 registro = lector.ReadLine();
                 vector = registro.Split(';');
 
-                if (txtLegajo.Text == vector[0])
+                if (txtLegajo.Text == vector[0] && txtMes.Text == vector[3])
                 {
                     registro = txtLegajo.Text + ";" + txtCategoria.Text + ";" + txtCantidadHorasExtras.Text + ";" + txtMes.Text + ";";
 
@@ -407,7 +407,11 @@ namespace ProyectoTP
                 registro = lector.ReadLine();
                 vector = registro.Split(';');
 
-                if (txtLegajo.Text != vector[0])
+                if (txtLegajo.Text == vector[0] && txtCategoria.Text == vector[1] && txtCantidadHorasExtras.Text == vector[2] && txtMes.Text == vector[3])
+                {
+                    continue;
+                }
+                else
                 {
                     escritor.WriteLine(registro);
                 }
@@ -472,7 +476,7 @@ namespace ProyectoTP
                 lstSueldosMayorPromedio.Items.Clear();
                 lstPrimerTrimestre.Items.Clear();
 
-                while (lector.Peek() != -1)
+                while (!lector.EndOfStream)
                 {
                     
                     sumSalario = 0;
@@ -499,8 +503,9 @@ namespace ProyectoTP
                     legajoAnterior = int.Parse(vector[0]);
                     //Variable que guarda las horas extras del primer trimestre del año
                     int empleadoHorasPrimerTrimestre = 0; 
+                    
 
-                    while(lector.Peek() !=-1 && legajoAnterior == int.Parse(vector[0]))
+                    while(!lector.EndOfStream && legajoAnterior == int.Parse(vector[0]) )
                     {
                         mes = int.Parse( vector[3]);
                         //guardo las horas extra por mes del empleado
@@ -525,20 +530,34 @@ namespace ProyectoTP
                          * ya que sino, se la salta porque leo al final de cada ciclo 
                          * y el Peek da -1 cuando falta una ultima iteracion
                          */
-                        if(lector.Peek() == -1 && legajoAnterior == int.Parse(vector[0]))
+                        if(lector.EndOfStream && legajoAnterior == int.Parse(vector[0]))
                         {
-                            mes = int.Parse(vector[3]);
 
+                            mes = int.Parse(vector[3]);
+                            
                             horasExtras = int.Parse(vector[2]);
+                            horasExtrasPorMes[mes - 1] = horasExtras;
+                            if (mes <= 3)
+                            {
+                                
+                                empleadoHorasPrimerTrimestre += horasExtras;
+
+                            }
                             
                             salarioPorMes[mes - 1] += valorHora * horasExtras;
+                            
                             ultimoEmpleado = int.Parse(vector[0]);
+                            
                         }
+                        
                         
                     }
 
+                   
+                     
+
                     //Calculo el empleado con menos horas el primer trimestre
-                    if(empleadoHorasPrimerTrimestre < minPrimerTrimestre)
+                    if (empleadoHorasPrimerTrimestre < minPrimerTrimestre)
                     {
                         //Si las horas trabajadas son menor que el minimo, el nuevo minimo seran las horas de ese empleado
                         minPrimerTrimestre = empleadoHorasPrimerTrimestre;
