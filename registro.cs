@@ -13,7 +13,7 @@ namespace ProyectoTP
 {
     public partial class frmRegistro : Form
     {
-        frmPrincipal principal;
+        
 
         public frmRegistro()
         {
@@ -34,9 +34,10 @@ namespace ProyectoTP
             {
 
                 escritor.WriteLine(registro);
-                principal = new frmPrincipal();
-                principal.Show();
                 this.Hide();
+                frmInicioDeSesion inicioSesion = new frmInicioDeSesion();
+                inicioSesion.ShowDialog();
+                this.Close();
             }
             escritor.Close();
             archivo.Close();
@@ -49,5 +50,12 @@ namespace ProyectoTP
 
         }
 
+        private void lblIniciarSesion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmInicioDeSesion inicioSesion = new frmInicioDeSesion();
+            inicioSesion.ShowDialog();
+            this.Close();
+        }
     }
 }

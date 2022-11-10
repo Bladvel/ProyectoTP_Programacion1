@@ -683,7 +683,8 @@ namespace ProyectoTP
             this.desactivo();
             Toggle();
         }
-    }
+
+        
 
 
 

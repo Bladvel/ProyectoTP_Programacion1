@@ -71,23 +71,30 @@
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnEliminarEmpleado = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.grpCategoria.SuspendLayout();
             this.grpEmpleado.SuspendLayout();
             this.grpDatosEmpleado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lstGeneral
             // 
             this.lstGeneral.FormattingEnabled = true;
-            this.lstGeneral.Location = new System.Drawing.Point(33, 303);
+            this.lstGeneral.ItemHeight = 15;
+            this.lstGeneral.Location = new System.Drawing.Point(33, 350);
             this.lstGeneral.Margin = new System.Windows.Forms.Padding(2);
             this.lstGeneral.Name = "lstGeneral";
-            this.lstGeneral.Size = new System.Drawing.Size(224, 147);
+            this.lstGeneral.Size = new System.Drawing.Size(238, 169);
             this.lstGeneral.TabIndex = 0;
             this.lstGeneral.SelectedIndexChanged += new System.EventHandler(this.lstGeneral_SelectedIndexChanged);
             // 
             // grpCategoria
             // 
+            this.grpCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.grpCategoria.Controls.Add(this.txtValorHoraExtra);
             this.grpCategoria.Controls.Add(this.txtSueldoBasico);
             this.grpCategoria.Controls.Add(this.txtDescripcion);
@@ -98,122 +105,134 @@
             this.grpCategoria.Controls.Add(this.label1);
             this.grpCategoria.Controls.Add(this.btnModificarCategoria);
             this.grpCategoria.Controls.Add(this.btnCargarCategoria);
-            this.grpCategoria.Location = new System.Drawing.Point(33, 110);
+            this.grpCategoria.Location = new System.Drawing.Point(33, 127);
             this.grpCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.grpCategoria.Name = "grpCategoria";
             this.grpCategoria.Padding = new System.Windows.Forms.Padding(2);
-            this.grpCategoria.Size = new System.Drawing.Size(223, 188);
+            this.grpCategoria.Size = new System.Drawing.Size(238, 217);
             this.grpCategoria.TabIndex = 1;
             this.grpCategoria.TabStop = false;
             this.grpCategoria.Text = "Cargar Categoria";
             // 
             // txtValorHoraExtra
             // 
-            this.txtValorHoraExtra.Location = new System.Drawing.Point(115, 121);
+            this.txtValorHoraExtra.Location = new System.Drawing.Point(130, 140);
             this.txtValorHoraExtra.Margin = new System.Windows.Forms.Padding(2);
             this.txtValorHoraExtra.Name = "txtValorHoraExtra";
-            this.txtValorHoraExtra.Size = new System.Drawing.Size(104, 20);
+            this.txtValorHoraExtra.Size = new System.Drawing.Size(104, 22);
             this.txtValorHoraExtra.TabIndex = 4;
             // 
             // txtSueldoBasico
             // 
-            this.txtSueldoBasico.Location = new System.Drawing.Point(115, 98);
+            this.txtSueldoBasico.Location = new System.Drawing.Point(130, 113);
             this.txtSueldoBasico.Margin = new System.Windows.Forms.Padding(2);
             this.txtSueldoBasico.Name = "txtSueldoBasico";
-            this.txtSueldoBasico.Size = new System.Drawing.Size(104, 20);
+            this.txtSueldoBasico.Size = new System.Drawing.Size(104, 22);
             this.txtSueldoBasico.TabIndex = 3;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(115, 56);
+            this.txtDescripcion.Location = new System.Drawing.Point(130, 65);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(104, 36);
+            this.txtDescripcion.Size = new System.Drawing.Size(104, 41);
             this.txtDescripcion.TabIndex = 2;
             // 
             // txtCodigoCategoria
             // 
-            this.txtCodigoCategoria.Location = new System.Drawing.Point(115, 32);
+            this.txtCodigoCategoria.Location = new System.Drawing.Point(130, 37);
             this.txtCodigoCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigoCategoria.Name = "txtCodigoCategoria";
-            this.txtCodigoCategoria.Size = new System.Drawing.Size(104, 20);
+            this.txtCodigoCategoria.Size = new System.Drawing.Size(104, 22);
             this.txtCodigoCategoria.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 124);
+            this.label4.Location = new System.Drawing.Point(16, 143);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.Size = new System.Drawing.Size(88, 15);
             this.label4.TabIndex = 1;
             this.label4.Text = "Valor Hora Extra";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 100);
+            this.label3.Location = new System.Drawing.Point(16, 115);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.Size = new System.Drawing.Size(78, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "Sueldo Basico";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 56);
+            this.label2.Location = new System.Drawing.Point(16, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(66, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripcion";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 35);
+            this.label1.Location = new System.Drawing.Point(16, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.Size = new System.Drawing.Size(107, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Codigo de Categoria";
             // 
             // btnModificarCategoria
             // 
-            this.btnModificarCategoria.Location = new System.Drawing.Point(115, 145);
+            this.btnModificarCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnModificarCategoria.FlatAppearance.BorderSize = 0;
+            this.btnModificarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificarCategoria.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnModificarCategoria.Location = new System.Drawing.Point(130, 167);
             this.btnModificarCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificarCategoria.Name = "btnModificarCategoria";
-            this.btnModificarCategoria.Size = new System.Drawing.Size(104, 38);
+            this.btnModificarCategoria.Size = new System.Drawing.Size(104, 44);
             this.btnModificarCategoria.TabIndex = 0;
             this.btnModificarCategoria.Text = "Modificar categoria";
-            this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            this.btnModificarCategoria.UseVisualStyleBackColor = false;
             this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
             // 
             // btnCargarCategoria
             // 
-            this.btnCargarCategoria.Location = new System.Drawing.Point(4, 145);
+            this.btnCargarCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnCargarCategoria.FlatAppearance.BorderSize = 0;
+            this.btnCargarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCargarCategoria.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnCargarCategoria.Location = new System.Drawing.Point(4, 167);
             this.btnCargarCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargarCategoria.Name = "btnCargarCategoria";
-            this.btnCargarCategoria.Size = new System.Drawing.Size(104, 38);
+            this.btnCargarCategoria.Size = new System.Drawing.Size(104, 44);
             this.btnCargarCategoria.TabIndex = 5;
             this.btnCargarCategoria.Text = "Cargar categoria";
-            this.btnCargarCategoria.UseVisualStyleBackColor = true;
+            this.btnCargarCategoria.UseVisualStyleBackColor = false;
             this.btnCargarCategoria.Click += new System.EventHandler(this.btnCargarCategoria_Click);
             // 
             // lstEmpleados
             // 
             this.lstEmpleados.FormattingEnabled = true;
-            this.lstEmpleados.Location = new System.Drawing.Point(340, 303);
+            this.lstEmpleados.ItemHeight = 15;
+            this.lstEmpleados.Location = new System.Drawing.Point(340, 350);
             this.lstEmpleados.Margin = new System.Windows.Forms.Padding(2);
             this.lstEmpleados.Name = "lstEmpleados";
-            this.lstEmpleados.Size = new System.Drawing.Size(224, 147);
+            this.lstEmpleados.Size = new System.Drawing.Size(238, 169);
             this.lstEmpleados.TabIndex = 0;
             this.lstEmpleados.SelectedIndexChanged += new System.EventHandler(this.lstEmpleados_SelectedIndexChanged);
             // 
             // grpEmpleado
             // 
+            this.grpEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.grpEmpleado.Controls.Add(this.txtMes);
             this.grpEmpleado.Controls.Add(this.txtCantidadHorasExtras);
             this.grpEmpleado.Controls.Add(this.txtCategoria);
@@ -224,110 +243,121 @@
             this.grpEmpleado.Controls.Add(this.label8);
             this.grpEmpleado.Controls.Add(this.btnModificarEmpleado);
             this.grpEmpleado.Controls.Add(this.btnCargarEmpleado);
-            this.grpEmpleado.Location = new System.Drawing.Point(340, 110);
+            this.grpEmpleado.Location = new System.Drawing.Point(340, 127);
             this.grpEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.grpEmpleado.Name = "grpEmpleado";
             this.grpEmpleado.Padding = new System.Windows.Forms.Padding(2);
-            this.grpEmpleado.Size = new System.Drawing.Size(223, 188);
+            this.grpEmpleado.Size = new System.Drawing.Size(238, 217);
             this.grpEmpleado.TabIndex = 1;
             this.grpEmpleado.TabStop = false;
             this.grpEmpleado.Text = "Cargar empleado por mes";
             // 
             // txtMes
             // 
-            this.txtMes.Location = new System.Drawing.Point(115, 109);
+            this.txtMes.Location = new System.Drawing.Point(130, 126);
             this.txtMes.Margin = new System.Windows.Forms.Padding(2);
             this.txtMes.Name = "txtMes";
-            this.txtMes.Size = new System.Drawing.Size(104, 20);
+            this.txtMes.Size = new System.Drawing.Size(104, 22);
             this.txtMes.TabIndex = 4;
             // 
             // txtCantidadHorasExtras
             // 
-            this.txtCantidadHorasExtras.Location = new System.Drawing.Point(115, 86);
+            this.txtCantidadHorasExtras.Location = new System.Drawing.Point(130, 99);
             this.txtCantidadHorasExtras.Margin = new System.Windows.Forms.Padding(2);
             this.txtCantidadHorasExtras.Name = "txtCantidadHorasExtras";
-            this.txtCantidadHorasExtras.Size = new System.Drawing.Size(104, 20);
+            this.txtCantidadHorasExtras.Size = new System.Drawing.Size(104, 22);
             this.txtCantidadHorasExtras.TabIndex = 3;
             // 
             // txtCategoria
             // 
-            this.txtCategoria.Location = new System.Drawing.Point(115, 56);
+            this.txtCategoria.Location = new System.Drawing.Point(130, 65);
             this.txtCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(104, 20);
+            this.txtCategoria.Size = new System.Drawing.Size(104, 22);
             this.txtCategoria.TabIndex = 2;
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(115, 32);
+            this.txtLegajo.Location = new System.Drawing.Point(130, 37);
             this.txtLegajo.Margin = new System.Windows.Forms.Padding(2);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(104, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(104, 22);
             this.txtLegajo.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 111);
+            this.label5.Location = new System.Drawing.Point(16, 128);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.Size = new System.Drawing.Size(29, 15);
             this.label5.TabIndex = 1;
             this.label5.Text = "Mes";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(16, 80);
+            this.label6.Location = new System.Drawing.Point(16, 92);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 31);
+            this.label6.Size = new System.Drawing.Size(71, 36);
             this.label6.TabIndex = 1;
             this.label6.Text = "Cantidad de horas extras";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 58);
+            this.label7.Location = new System.Drawing.Point(16, 67);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.Size = new System.Drawing.Size(55, 15);
             this.label7.TabIndex = 1;
             this.label7.Text = "Categoria";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 35);
+            this.label8.Location = new System.Drawing.Point(16, 40);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.Size = new System.Drawing.Size(95, 15);
             this.label8.TabIndex = 1;
             this.label8.Text = "Numero de legajo";
             // 
             // btnModificarEmpleado
             // 
-            this.btnModificarEmpleado.Location = new System.Drawing.Point(115, 145);
+            this.btnModificarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnModificarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnModificarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificarEmpleado.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btnModificarEmpleado.Location = new System.Drawing.Point(130, 167);
             this.btnModificarEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificarEmpleado.Name = "btnModificarEmpleado";
-            this.btnModificarEmpleado.Size = new System.Drawing.Size(104, 38);
+            this.btnModificarEmpleado.Size = new System.Drawing.Size(104, 44);
             this.btnModificarEmpleado.TabIndex = 0;
             this.btnModificarEmpleado.Text = "Modificar empleado";
-            this.btnModificarEmpleado.UseVisualStyleBackColor = true;
+            this.btnModificarEmpleado.UseVisualStyleBackColor = false;
             this.btnModificarEmpleado.Click += new System.EventHandler(this.btnModificarEmpleado_Click);
             // 
             // btnCargarEmpleado
             // 
-            this.btnCargarEmpleado.Location = new System.Drawing.Point(4, 145);
+            this.btnCargarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnCargarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnCargarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCargarEmpleado.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btnCargarEmpleado.Location = new System.Drawing.Point(4, 167);
             this.btnCargarEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargarEmpleado.Name = "btnCargarEmpleado";
-            this.btnCargarEmpleado.Size = new System.Drawing.Size(104, 38);
+            this.btnCargarEmpleado.Size = new System.Drawing.Size(104, 44);
             this.btnCargarEmpleado.TabIndex = 5;
             this.btnCargarEmpleado.Text = "Cargar empleado";
-            this.btnCargarEmpleado.UseVisualStyleBackColor = true;
+            this.btnCargarEmpleado.UseVisualStyleBackColor = false;
             this.btnCargarEmpleado.Click += new System.EventHandler(this.btnCargarEmpleado_Click);
             // 
             // grpDatosEmpleado
             // 
+            this.grpDatosEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.grpDatosEmpleado.Controls.Add(this.lstSueldosMayorPromedio);
             this.grpDatosEmpleado.Controls.Add(this.label14);
             this.grpDatosEmpleado.Controls.Add(this.txtCobroDiciembre);
@@ -339,11 +369,11 @@
             this.grpDatosEmpleado.Controls.Add(this.label12);
             this.grpDatosEmpleado.Controls.Add(this.label16);
             this.grpDatosEmpleado.Controls.Add(this.btnMostrarDatos);
-            this.grpDatosEmpleado.Location = new System.Drawing.Point(644, 110);
+            this.grpDatosEmpleado.Location = new System.Drawing.Point(644, 127);
             this.grpDatosEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.grpDatosEmpleado.Name = "grpDatosEmpleado";
             this.grpDatosEmpleado.Padding = new System.Windows.Forms.Padding(2);
-            this.grpDatosEmpleado.Size = new System.Drawing.Size(395, 487);
+            this.grpDatosEmpleado.Size = new System.Drawing.Size(395, 562);
             this.grpDatosEmpleado.TabIndex = 3;
             this.grpDatosEmpleado.TabStop = false;
             this.grpDatosEmpleado.Text = "Datos a saber";
@@ -351,121 +381,129 @@
             // lstSueldosMayorPromedio
             // 
             this.lstSueldosMayorPromedio.FormattingEnabled = true;
-            this.lstSueldosMayorPromedio.Location = new System.Drawing.Point(112, 119);
+            this.lstSueldosMayorPromedio.ItemHeight = 15;
+            this.lstSueldosMayorPromedio.Location = new System.Drawing.Point(112, 137);
             this.lstSueldosMayorPromedio.Margin = new System.Windows.Forms.Padding(2);
             this.lstSueldosMayorPromedio.Name = "lstSueldosMayorPromedio";
-            this.lstSueldosMayorPromedio.Size = new System.Drawing.Size(279, 95);
+            this.lstSueldosMayorPromedio.Size = new System.Drawing.Size(279, 109);
             this.lstSueldosMayorPromedio.TabIndex = 2;
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(10, 348);
+            this.label14.Location = new System.Drawing.Point(10, 402);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 55);
+            this.label14.Size = new System.Drawing.Size(98, 63);
             this.label14.TabIndex = 1;
             this.label14.Text = "Quien trabajo menos horas extras el primer trimestre\r\n del año";
             // 
             // txtCobroDiciembre
             // 
-            this.txtCobroDiciembre.Location = new System.Drawing.Point(112, 281);
+            this.txtCobroDiciembre.Location = new System.Drawing.Point(112, 324);
             this.txtCobroDiciembre.Margin = new System.Windows.Forms.Padding(2);
             this.txtCobroDiciembre.Multiline = true;
             this.txtCobroDiciembre.Name = "txtCobroDiciembre";
             this.txtCobroDiciembre.ReadOnly = true;
-            this.txtCobroDiciembre.Size = new System.Drawing.Size(279, 46);
+            this.txtCobroDiciembre.Size = new System.Drawing.Size(279, 52);
             this.txtCobroDiciembre.TabIndex = 2;
             // 
             // lstPrimerTrimestre
             // 
             this.lstPrimerTrimestre.FormattingEnabled = true;
-            this.lstPrimerTrimestre.Location = new System.Drawing.Point(112, 348);
+            this.lstPrimerTrimestre.ItemHeight = 15;
+            this.lstPrimerTrimestre.Location = new System.Drawing.Point(112, 402);
             this.lstPrimerTrimestre.Margin = new System.Windows.Forms.Padding(2);
             this.lstPrimerTrimestre.Name = "lstPrimerTrimestre";
-            this.lstPrimerTrimestre.Size = new System.Drawing.Size(279, 69);
+            this.lstPrimerTrimestre.Size = new System.Drawing.Size(279, 79);
             this.lstPrimerTrimestre.TabIndex = 2;
             // 
             // lstSueldoAnual
             // 
             this.lstSueldoAnual.FormattingEnabled = true;
-            this.lstSueldoAnual.Location = new System.Drawing.Point(112, 35);
+            this.lstSueldoAnual.ItemHeight = 15;
+            this.lstSueldoAnual.Location = new System.Drawing.Point(112, 40);
             this.lstSueldoAnual.Margin = new System.Windows.Forms.Padding(2);
             this.lstSueldoAnual.Name = "lstSueldoAnual";
-            this.lstSueldoAnual.Size = new System.Drawing.Size(279, 69);
+            this.lstSueldoAnual.Size = new System.Drawing.Size(279, 79);
             this.lstSueldoAnual.TabIndex = 2;
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(10, 281);
+            this.label15.Location = new System.Drawing.Point(10, 324);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(86, 43);
+            this.label15.Size = new System.Drawing.Size(86, 50);
             this.label15.TabIndex = 1;
             this.label15.Text = "Quien cobro mas en diciembre";
             // 
             // txtMaximoSueldo
             // 
-            this.txtMaximoSueldo.Location = new System.Drawing.Point(112, 230);
+            this.txtMaximoSueldo.Location = new System.Drawing.Point(112, 265);
             this.txtMaximoSueldo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaximoSueldo.Name = "txtMaximoSueldo";
             this.txtMaximoSueldo.ReadOnly = true;
-            this.txtMaximoSueldo.Size = new System.Drawing.Size(279, 20);
+            this.txtMaximoSueldo.Size = new System.Drawing.Size(279, 22);
             this.txtMaximoSueldo.TabIndex = 2;
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(10, 119);
+            this.label11.Location = new System.Drawing.Point(10, 137);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 64);
+            this.label11.Size = new System.Drawing.Size(98, 74);
             this.label11.TabIndex = 1;
             this.label11.Text = "Sueldos que superan el salario promedio de cada empleado";
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(10, 35);
+            this.label12.Location = new System.Drawing.Point(10, 40);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 33);
+            this.label12.Size = new System.Drawing.Size(86, 38);
             this.label12.TabIndex = 1;
             this.label12.Text = "Sueldo anual de cada empleado";
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(10, 230);
+            this.label16.Location = new System.Drawing.Point(10, 265);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 35);
+            this.label16.Size = new System.Drawing.Size(98, 40);
             this.label16.TabIndex = 1;
             this.label16.Text = "Maximo sueldo pagado en un mes";
             // 
             // btnMostrarDatos
             // 
-            this.btnMostrarDatos.Location = new System.Drawing.Point(163, 431);
+            this.btnMostrarDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnMostrarDatos.FlatAppearance.BorderSize = 0;
+            this.btnMostrarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMostrarDatos.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarDatos.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarDatos.Location = new System.Drawing.Point(163, 497);
             this.btnMostrarDatos.Margin = new System.Windows.Forms.Padding(2);
             this.btnMostrarDatos.Name = "btnMostrarDatos";
-            this.btnMostrarDatos.Size = new System.Drawing.Size(94, 28);
+            this.btnMostrarDatos.Size = new System.Drawing.Size(94, 32);
             this.btnMostrarDatos.TabIndex = 0;
             this.btnMostrarDatos.Text = "Mostrar datos";
-            this.btnMostrarDatos.UseVisualStyleBackColor = true;
+            this.btnMostrarDatos.UseVisualStyleBackColor = false;
             this.btnMostrarDatos.Click += new System.EventHandler(this.btnMostrarDatos_Click);
             // 
             // lblAntesDeIniciar
             // 
             this.lblAntesDeIniciar.AutoSize = true;
-            this.lblAntesDeIniciar.Location = new System.Drawing.Point(227, 9);
+            this.lblAntesDeIniciar.Location = new System.Drawing.Point(227, 10);
             this.lblAntesDeIniciar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAntesDeIniciar.Name = "lblAntesDeIniciar";
-            this.lblAntesDeIniciar.Size = new System.Drawing.Size(200, 13);
+            this.lblAntesDeIniciar.Size = new System.Drawing.Size(214, 15);
             this.lblAntesDeIniciar.TabIndex = 4;
             this.lblAntesDeIniciar.Text = "Por favor inicie sesion antes de proseguir";
             // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(435, 31);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(435, 36);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(94, 28);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(94, 32);
             this.btnIniciarSesion.TabIndex = 5;
             this.btnIniciarSesion.Text = "Iniciar Sesion";
             this.btnIniciarSesion.UseVisualStyleBackColor = true;
@@ -473,10 +511,10 @@
             // 
             // btnRegistrarse
             // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(547, 31);
+            this.btnRegistrarse.Location = new System.Drawing.Point(547, 36);
             this.btnRegistrarse.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(94, 28);
+            this.btnRegistrarse.Size = new System.Drawing.Size(94, 32);
             this.btnRegistrarse.TabIndex = 5;
             this.btnRegistrarse.Text = "Registrarse";
             this.btnRegistrarse.UseVisualStyleBackColor = true;
@@ -485,52 +523,104 @@
             // lblSaludo
             // 
             this.lblSaludo.AutoSize = true;
-            this.lblSaludo.Location = new System.Drawing.Point(230, 11);
+            this.lblSaludo.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaludo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.lblSaludo.Location = new System.Drawing.Point(78, 59);
             this.lblSaludo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSaludo.Name = "lblSaludo";
-            this.lblSaludo.Size = new System.Drawing.Size(35, 13);
+            this.lblSaludo.Size = new System.Drawing.Size(139, 28);
             this.lblSaludo.TabIndex = 6;
-            this.lblSaludo.Text = "label9";
+            this.lblSaludo.Text = "Hola usuario!";
             // 
             // btnEliminarCategoria
             // 
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(33, 454);
+            this.btnEliminarCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnEliminarCategoria.FlatAppearance.BorderSize = 0;
+            this.btnEliminarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarCategoria.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(33, 524);
             this.btnEliminarCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarCategoria.Name = "btnEliminarCategoria";
-            this.btnEliminarCategoria.Size = new System.Drawing.Size(223, 25);
+            this.btnEliminarCategoria.Size = new System.Drawing.Size(238, 29);
             this.btnEliminarCategoria.TabIndex = 7;
             this.btnEliminarCategoria.Text = "Eliminar categoria";
-            this.btnEliminarCategoria.UseVisualStyleBackColor = true;
+            this.btnEliminarCategoria.UseVisualStyleBackColor = false;
             this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
             // 
             // btnEliminarEmpleado
             // 
-            this.btnEliminarEmpleado.Location = new System.Drawing.Point(340, 454);
+            this.btnEliminarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnEliminarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEliminarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarEmpleado.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(340, 524);
             this.btnEliminarEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
-            this.btnEliminarEmpleado.Size = new System.Drawing.Size(223, 25);
+            this.btnEliminarEmpleado.Size = new System.Drawing.Size(238, 29);
             this.btnEliminarEmpleado.TabIndex = 7;
             this.btnEliminarEmpleado.Text = "Eliminar empleado";
-            this.btnEliminarEmpleado.UseVisualStyleBackColor = true;
+            this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
             this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Location = new System.Drawing.Point(491, 31);
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(945, 57);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(94, 28);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(94, 32);
             this.btnCerrarSesion.TabIndex = 8;
             this.btnCerrarSesion.Text = "Cerrar Sesion";
-            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(211, 617);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(216, 35);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "MADA Creations";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProyectoTP.Resource1.icons8_phoenix_framework_125px_1;
+            this.pictureBox1.Location = new System.Drawing.Point(52, 593);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 82);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ProyectoTP.Resource1.Groupicon;
+            this.pictureBox2.Location = new System.Drawing.Point(33, 53);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1118, 615);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(118)))), ((int)(((byte)(220)))));
+            this.ClientSize = new System.Drawing.Size(1118, 710);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnEliminarEmpleado);
             this.Controls.Add(this.btnEliminarCategoria);
@@ -543,6 +633,7 @@
             this.Controls.Add(this.grpCategoria);
             this.Controls.Add(this.lstEmpleados);
             this.Controls.Add(this.lstGeneral);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -554,6 +645,8 @@
             this.grpEmpleado.PerformLayout();
             this.grpDatosEmpleado.ResumeLayout(false);
             this.grpDatosEmpleado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -604,5 +697,8 @@
         private System.Windows.Forms.ListBox lstSueldoAnual;
         private System.Windows.Forms.ListBox lstPrimerTrimestre;
         private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

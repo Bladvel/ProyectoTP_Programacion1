@@ -15,6 +15,7 @@ namespace ProyectoTP
     public partial class frmInicioDeSesion : Form
     {
         frmPrincipal principal;
+        frmRegistro registro;
         public frmInicioDeSesion()
         {
             InitializeComponent();
@@ -74,6 +75,14 @@ namespace ProyectoTP
                 archivo.Close();
 
             }
+            
+        }
+
+        private void lblRegistrate_Click(object sender, EventArgs e)
+        {
+
+            registro = new frmRegistro();
+            registro.ShowDialog();
             
         }
     }
