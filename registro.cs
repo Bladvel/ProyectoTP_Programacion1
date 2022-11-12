@@ -32,7 +32,7 @@ namespace ProyectoTP
             }
             else
             {
-
+                MessageBox.Show("Se ha registrado exitosamente");
                 escritor.WriteLine(registro);
                 this.Hide();
                 frmInicioDeSesion inicioSesion = new frmInicioDeSesion();
@@ -41,12 +41,6 @@ namespace ProyectoTP
             }
             escritor.Close();
             archivo.Close();
-            
-            
-
-            
-
-            
 
         }
 

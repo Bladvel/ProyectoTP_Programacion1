@@ -34,8 +34,8 @@
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblIniciarSesion = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -44,13 +44,14 @@
             // 
             // btnRegistar
             // 
-            this.btnRegistar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnRegistar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(57)))), ((int)(((byte)(168)))));
+            this.btnRegistar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistar.FlatAppearance.BorderSize = 0;
             this.btnRegistar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistar.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistar.ForeColor = System.Drawing.Color.White;
             this.btnRegistar.Location = new System.Drawing.Point(103, 158);
-            this.btnRegistar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegistar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistar.Name = "btnRegistar";
             this.btnRegistar.Size = new System.Drawing.Size(95, 33);
             this.btnRegistar.TabIndex = 3;
@@ -74,7 +75,7 @@
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(137, 42);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(123, 29);
             this.txtUsuario.TabIndex = 1;
@@ -83,7 +84,7 @@
             // 
             this.txtContrasena.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.Location = new System.Drawing.Point(137, 100);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(123, 29);
@@ -103,7 +104,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.groupBox1.Controls.Add(this.lblIniciarSesion);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnRegistar);
@@ -114,13 +115,26 @@
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(82)))));
             this.groupBox1.Location = new System.Drawing.Point(311, 52);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(300, 207);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registrarse";
+            // 
+            // lblIniciarSesion
+            // 
+            this.lblIniciarSesion.AutoSize = true;
+            this.lblIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblIniciarSesion.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIniciarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(140)))), ((int)(((byte)(228)))));
+            this.lblIniciarSesion.Location = new System.Drawing.Point(168, 133);
+            this.lblIniciarSesion.Name = "lblIniciarSesion";
+            this.lblIniciarSesion.Size = new System.Drawing.Size(75, 15);
+            this.lblIniciarSesion.TabIndex = 6;
+            this.lblIniciarSesion.Text = "Iniciar Sesion";
+            this.lblIniciarSesion.Click += new System.EventHandler(this.lblIniciarSesion_Click);
             // 
             // label5
             // 
@@ -131,18 +145,6 @@
             this.label5.Size = new System.Drawing.Size(98, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "¿Ya tenes cuenta?";
-            // 
-            // lblIniciarSesion
-            // 
-            this.lblIniciarSesion.AutoSize = true;
-            this.lblIniciarSesion.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIniciarSesion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(140)))), ((int)(((byte)(228)))));
-            this.lblIniciarSesion.Location = new System.Drawing.Point(168, 133);
-            this.lblIniciarSesion.Name = "lblIniciarSesion";
-            this.lblIniciarSesion.Size = new System.Drawing.Size(75, 15);
-            this.lblIniciarSesion.TabIndex = 6;
-            this.lblIniciarSesion.Text = "Iniciar Sesion";
-            this.lblIniciarSesion.Click += new System.EventHandler(this.lblIniciarSesion_Click);
             // 
             // pictureBox1
             // 
@@ -174,7 +176,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Usuario";

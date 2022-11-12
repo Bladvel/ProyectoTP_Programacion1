@@ -44,7 +44,8 @@
             // 
             // btnIniciar
             // 
-            this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(87)))));
+            this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(57)))), ((int)(((byte)(168)))));
+            this.btnIniciar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIniciar.FlatAppearance.BorderSize = 0;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIniciar.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -60,7 +61,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblRegistrate);
             this.groupBox1.Controls.Add(this.btnIniciar);
@@ -68,6 +69,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(27)))), ((int)(((byte)(82)))));
             this.groupBox1.Location = new System.Drawing.Point(311, 52);
@@ -92,6 +94,7 @@
             // lblRegistrate
             // 
             this.lblRegistrate.AutoSize = true;
+            this.lblRegistrate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblRegistrate.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistrate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(140)))), ((int)(((byte)(228)))));
             this.lblRegistrate.Location = new System.Drawing.Point(169, 133);
