@@ -155,9 +155,9 @@ namespace ProyectoTP
             
 
             //Verifico que no se introduzcan campos vacios
-            if (txtCodigoCategoria.Text != "" && txtDescripcion.Text != "" && txtSueldoBasico.Text != "" && txtValorHoraExtra.Text != "")
+            if (nudCodigoCategoria.Text != "0" && txtDescripcion.Text != "" && txtSueldoBasico.Text != "" && txtValorHoraExtra.Text != "" && lstGeneral.Items.Count <6)
             {
-                registro = txtCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
+                registro = nudCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
                 vector = registro.Split(';');
                 if (Int32.TryParse(vector[0], out int number))
                 {
@@ -175,12 +175,12 @@ namespace ProyectoTP
             }
             else
             {
-                MessageBox.Show("Hay campos vacios. Por favor introducir de nuevo");
-                txtCodigoCategoria.Clear();
+                MessageBox.Show("Hay campos vacios o trata de introducir una categoria existente. Por favor introducir los datos correctamente");
+                nudCodigoCategoria.Value = 0;
                 txtDescripcion.Clear();
                 txtSueldoBasico.Clear();
                 txtValorHoraExtra.Clear();
-                txtCodigoCategoria.Focus();
+                nudCodigoCategoria.Focus();
             }
 
 
@@ -200,7 +200,7 @@ namespace ProyectoTP
                 FileStream archivo = new FileStream(Directory.GetCurrentDirectory() + "/categoria.txt", FileMode.Open);
                 StreamReader lector = new StreamReader(archivo);
                 string registro;
-                string[] vector;
+                
 
 
                 while (lector.Peek() != -1)
@@ -215,11 +215,11 @@ namespace ProyectoTP
                 lector.Close();
                 archivo.Close();
 
-                txtCodigoCategoria.Clear();
+                nudCodigoCategoria.Value = 0;
                 txtDescripcion.Clear();
                 txtSueldoBasico.Clear();
                 txtValorHoraExtra.Clear();
-                txtCodigoCategoria.Focus();
+                nudCodigoCategoria.Focus();
 
                 leerCategoria();
 
@@ -233,7 +233,7 @@ namespace ProyectoTP
             registro = lstGeneral.SelectedItem.ToString();
             string[] vector;
             vector = registro.Split(';');
-            txtCodigoCategoria.Text = vector[0];
+            nudCodigoCategoria.Text = vector[0];
             txtDescripcion.Text = vector[1];
             txtSueldoBasico.Text = vector[2];
             txtValorHoraExtra.Text = vector[3];
@@ -264,9 +264,9 @@ namespace ProyectoTP
 
 
                         //Comparo el registro leido del archivo con el dato mostrado en el textbox
-                        if (txtCodigoCategoria.Text == vector[0])
+                        if (nudCodigoCategoria.Text == vector[0])
                         {
-                            registro = txtCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
+                            registro = nudCodigoCategoria.Text + ";" + txtDescripcion.Text + ";" + txtSueldoBasico.Text + ";" + txtValorHoraExtra.Text + ";";
 
                         }
 
@@ -313,7 +313,7 @@ namespace ProyectoTP
                     registro = lector.ReadLine();
                     vector = registro.Split(';');
 
-                    if (txtCodigoCategoria.Text == vector[0] && txtDescripcion.Text == vector[1] && txtSueldoBasico.Text == vector[2] && txtValorHoraExtra.Text == vector[3])
+                    if (nudCodigoCategoria.Text == vector[0] && txtDescripcion.Text == vector[1] && txtSueldoBasico.Text == vector[2] && txtValorHoraExtra.Text == vector[3])
                     {
                         continue;
                     }
@@ -347,35 +347,35 @@ namespace ProyectoTP
             int mes;
             string registro;
 
-            if (txtLegajo.Text != "" && txtCategoria.Text != "" && txtCantidadHorasExtras.Text != "" && txtMes.Text != "")
+            if (nudLegajo.Text != "0" && nudCategoria.Text != "0" && txtCantidadHorasExtras.Text != "" && nudMes.Text != "0")
             {   
-                legajo = Int32.Parse(txtLegajo.Text);
-                categoria = Int32.Parse(txtCategoria.Text);
-                mes = Int32.Parse(txtMes.Text);
+                legajo = Int32.Parse(nudLegajo.Text);
+                categoria = Int32.Parse(nudCategoria.Text);
+                mes = Int32.Parse(nudMes.Text);
                 if ((legajo > 0 && legajo <81) && (categoria > 0 && categoria < 7) && ( mes > 0 && mes <13))
                 {
-                    registro = txtLegajo.Text + ";" + txtCategoria.Text + ";" + txtCantidadHorasExtras.Text + ";" + txtMes.Text + ";";
+                    registro = nudLegajo.Text + ";" + nudCategoria.Text + ";" + txtCantidadHorasExtras.Text + ";" + nudMes.Text + ";";
                     escritor.WriteLine(registro);
                 }
                 else
                 {
                     MessageBox.Show("No se puede introducir un legajo que no se encuentre entre 1 y 80 inclusive, una categoria que no este entre 1 y 6 inclusive o un mes menor a 1 y mayor a 12");
-                    txtLegajo.Clear();
-                    txtCategoria.Clear();
+                    nudLegajo.Value = 0;
+                    nudCategoria.Value = 0;
                     txtCantidadHorasExtras.Clear();
-                    txtMes.Clear();
-                    txtLegajo.Focus();
+                    nudMes.Value = 0;
+                    nudLegajo.Focus();
                 }
                 
             }
             else
             {
                 MessageBox.Show("Hay campos vacios. Por favor introducir de nuevo");
-                txtLegajo.Clear();
-                txtCategoria.Clear();
+                nudLegajo.Value = 0;
+                nudCategoria.Value = 0;
                 txtCantidadHorasExtras.Clear();
-                txtMes.Clear();
-                txtLegajo.Focus();
+                nudMes.Value = 0;
+                nudLegajo.Focus();
 
             }
 
@@ -404,11 +404,11 @@ namespace ProyectoTP
                 lector.Close();
                 archivo.Close();
 
-                txtLegajo.Clear();
-                txtCategoria.Clear();
+                nudLegajo.Value = 0;
+                nudCategoria.Value = 0;
                 txtCantidadHorasExtras.Clear();
-                txtMes.Clear();
-                txtLegajo.Focus();
+                nudMes.Value = 0;
+                nudLegajo.Focus();
             }
         }
 
@@ -420,10 +420,10 @@ namespace ProyectoTP
             registro = lstEmpleados.SelectedItem.ToString();
             vector = registro.Split(';');
 
-            txtLegajo.Text = vector[0];
-            txtCategoria.Text = vector[1];
+            nudLegajo.Text = vector[0];
+            nudCategoria.Text = vector[1];
             txtCantidadHorasExtras.Text = vector[2];
-            txtMes.Text = vector[3];
+            nudMes.Text = vector[3];
         }
 
         private void btnModificarEmpleado_Click(object sender, EventArgs e)
@@ -448,9 +448,9 @@ namespace ProyectoTP
                     registro = lector.ReadLine();
                     vector = registro.Split(';');
 
-                    if (txtLegajo.Text == vector[0] && txtMes.Text == vector[3])
+                    if (nudLegajo.Text == vector[0] && nudMes.Text == vector[3])
                     {
-                        registro = txtLegajo.Text + ";" + txtCategoria.Text + ";" + txtCantidadHorasExtras.Text + ";" + txtMes.Text + ";";
+                        registro = nudLegajo.Text + ";" + nudCategoria.Text + ";" + txtCantidadHorasExtras.Text + ";" + nudMes.Text + ";";
 
                     }
 
@@ -491,7 +491,7 @@ namespace ProyectoTP
                     registro = lector.ReadLine();
                     vector = registro.Split(';');
 
-                    if (txtLegajo.Text == vector[0] && txtCategoria.Text == vector[1] && txtCantidadHorasExtras.Text == vector[2] && txtMes.Text == vector[3])
+                    if (nudLegajo.Text == vector[0] && nudCategoria.Text == vector[1] && txtCantidadHorasExtras.Text == vector[2] && nudMes.Text == vector[3])
                     {
                         continue;
                     }
@@ -755,43 +755,9 @@ namespace ProyectoTP
             MessageBox.Show("Por favor introducir los datos agrupados por el legajo del empleado.");
         }
 
-        private void txtLegajo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Verifica que la tecla presionada no es una tecla de control o un caracter no numerico          
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Verifica que la tecla presionada no es una tecla de control o un caracter no numerico          
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
+       
 
         private void txtCantidadHorasExtras_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Verifica que la tecla presionada no es una tecla de control o un caracter no numerico          
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtMes_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Verifica que la tecla presionada no es una tecla de control o un caracter no numerico          
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtCodigoCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Verifica que la tecla presionada no es una tecla de control o un caracter no numerico          
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))

@@ -30,10 +30,10 @@
         {
             this.lstGeneral = new System.Windows.Forms.ListBox();
             this.grpCategoria = new System.Windows.Forms.GroupBox();
+            this.lblInformacionCategoria = new System.Windows.Forms.Label();
             this.txtValorHoraExtra = new System.Windows.Forms.TextBox();
             this.txtSueldoBasico = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtCodigoCategoria = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,10 +43,7 @@
             this.lstEmpleados = new System.Windows.Forms.ListBox();
             this.grpEmpleado = new System.Windows.Forms.GroupBox();
             this.lblInformacionEmpleado = new System.Windows.Forms.Label();
-            this.txtMes = new System.Windows.Forms.TextBox();
             this.txtCantidadHorasExtras = new System.Windows.Forms.TextBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
-            this.txtLegajo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,12 +72,19 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picUsuario = new System.Windows.Forms.PictureBox();
-            this.lblInformacionCategoria = new System.Windows.Forms.Label();
+            this.nudCodigoCategoria = new System.Windows.Forms.NumericUpDown();
+            this.nudLegajo = new System.Windows.Forms.NumericUpDown();
+            this.nudCategoria = new System.Windows.Forms.NumericUpDown();
+            this.nudMes = new System.Windows.Forms.NumericUpDown();
             this.grpCategoria.SuspendLayout();
             this.grpEmpleado.SuspendLayout();
             this.grpDatosEmpleado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCodigoCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLegajo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMes)).BeginInit();
             this.SuspendLayout();
             // 
             // lstGeneral
@@ -100,8 +104,8 @@
             this.grpCategoria.Controls.Add(this.lblInformacionCategoria);
             this.grpCategoria.Controls.Add(this.txtValorHoraExtra);
             this.grpCategoria.Controls.Add(this.txtSueldoBasico);
+            this.grpCategoria.Controls.Add(this.nudCodigoCategoria);
             this.grpCategoria.Controls.Add(this.txtDescripcion);
-            this.grpCategoria.Controls.Add(this.txtCodigoCategoria);
             this.grpCategoria.Controls.Add(this.label4);
             this.grpCategoria.Controls.Add(this.label3);
             this.grpCategoria.Controls.Add(this.label2);
@@ -118,6 +122,17 @@
             this.grpCategoria.TabIndex = 1;
             this.grpCategoria.TabStop = false;
             this.grpCategoria.Text = "Cargar Categoria";
+            // 
+            // lblInformacionCategoria
+            // 
+            this.lblInformacionCategoria.Font = new System.Drawing.Font("Roboto", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacionCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(140)))), ((int)(((byte)(228)))));
+            this.lblInformacionCategoria.Location = new System.Drawing.Point(16, 24);
+            this.lblInformacionCategoria.Name = "lblInformacionCategoria";
+            this.lblInformacionCategoria.Size = new System.Drawing.Size(203, 35);
+            this.lblInformacionCategoria.TabIndex = 6;
+            this.lblInformacionCategoria.Text = "INFORMACION IMPORTANTE ANTES DE CARGAR UNA CATEGORIA";
+            this.lblInformacionCategoria.Click += new System.EventHandler(this.lblInformacionCategoria_Click);
             // 
             // txtValorHoraExtra
             // 
@@ -148,17 +163,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(104, 41);
             this.txtDescripcion.TabIndex = 2;
-            // 
-            // txtCodigoCategoria
-            // 
-            this.txtCodigoCategoria.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoCategoria.Location = new System.Drawing.Point(130, 68);
-            this.txtCodigoCategoria.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCodigoCategoria.MaxLength = 1;
-            this.txtCodigoCategoria.Name = "txtCodigoCategoria";
-            this.txtCodigoCategoria.Size = new System.Drawing.Size(104, 22);
-            this.txtCodigoCategoria.TabIndex = 1;
-            this.txtCodigoCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCategoria_KeyPress);
             // 
             // label4
             // 
@@ -251,11 +255,11 @@
             // grpEmpleado
             // 
             this.grpEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.grpEmpleado.Controls.Add(this.nudMes);
             this.grpEmpleado.Controls.Add(this.lblInformacionEmpleado);
-            this.grpEmpleado.Controls.Add(this.txtMes);
+            this.grpEmpleado.Controls.Add(this.nudCategoria);
+            this.grpEmpleado.Controls.Add(this.nudLegajo);
             this.grpEmpleado.Controls.Add(this.txtCantidadHorasExtras);
-            this.grpEmpleado.Controls.Add(this.txtCategoria);
-            this.grpEmpleado.Controls.Add(this.txtLegajo);
             this.grpEmpleado.Controls.Add(this.label5);
             this.grpEmpleado.Controls.Add(this.label6);
             this.grpEmpleado.Controls.Add(this.label7);
@@ -286,17 +290,6 @@
             this.lblInformacionEmpleado.Text = "INFORMACION IMPORTANTE ANTES DE CARGAR UN MES";
             this.lblInformacionEmpleado.Click += new System.EventHandler(this.lblInformacionEmpleado_Click);
             // 
-            // txtMes
-            // 
-            this.txtMes.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMes.Location = new System.Drawing.Point(130, 154);
-            this.txtMes.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMes.MaxLength = 2;
-            this.txtMes.Name = "txtMes";
-            this.txtMes.Size = new System.Drawing.Size(104, 22);
-            this.txtMes.TabIndex = 4;
-            this.txtMes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMes_KeyPress);
-            // 
             // txtCantidadHorasExtras
             // 
             this.txtCantidadHorasExtras.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -306,28 +299,6 @@
             this.txtCantidadHorasExtras.Size = new System.Drawing.Size(104, 22);
             this.txtCantidadHorasExtras.TabIndex = 3;
             this.txtCantidadHorasExtras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadHorasExtras_KeyPress);
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoria.Location = new System.Drawing.Point(130, 93);
-            this.txtCategoria.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCategoria.MaxLength = 1;
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(104, 22);
-            this.txtCategoria.TabIndex = 2;
-            this.txtCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoria_KeyPress);
-            // 
-            // txtLegajo
-            // 
-            this.txtLegajo.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLegajo.Location = new System.Drawing.Point(130, 65);
-            this.txtLegajo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLegajo.MaxLength = 2;
-            this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(104, 22);
-            this.txtLegajo.TabIndex = 1;
-            this.txtLegajo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLegajo_KeyPress);
             // 
             // label5
             // 
@@ -448,7 +419,7 @@
             this.label14.Location = new System.Drawing.Point(10, 402);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 63);
+            this.label14.Size = new System.Drawing.Size(98, 79);
             this.label14.TabIndex = 1;
             this.label14.Text = "Quien trabajo menos horas extras el primer trimestre\r\n del año";
             // 
@@ -531,7 +502,7 @@
             this.label16.Location = new System.Drawing.Point(10, 265);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 40);
+            this.label16.Size = new System.Drawing.Size(98, 59);
             this.label16.TabIndex = 1;
             this.label16.Text = "Sueldo maximo pagado en un mes";
             // 
@@ -691,16 +662,57 @@
             this.picUsuario.TabIndex = 11;
             this.picUsuario.TabStop = false;
             // 
-            // lblInformacionCategoria
+            // nudCodigoCategoria
             // 
-            this.lblInformacionCategoria.Font = new System.Drawing.Font("Roboto", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacionCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(140)))), ((int)(((byte)(228)))));
-            this.lblInformacionCategoria.Location = new System.Drawing.Point(16, 24);
-            this.lblInformacionCategoria.Name = "lblInformacionCategoria";
-            this.lblInformacionCategoria.Size = new System.Drawing.Size(203, 35);
-            this.lblInformacionCategoria.TabIndex = 6;
-            this.lblInformacionCategoria.Text = "INFORMACION IMPORTANTE ANTES DE CARGAR UNA CATEGORIA";
-            this.lblInformacionCategoria.Click += new System.EventHandler(this.lblInformacionCategoria_Click);
+            this.nudCodigoCategoria.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCodigoCategoria.Location = new System.Drawing.Point(130, 66);
+            this.nudCodigoCategoria.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.nudCodigoCategoria.Name = "nudCodigoCategoria";
+            this.nudCodigoCategoria.Size = new System.Drawing.Size(103, 23);
+            this.nudCodigoCategoria.TabIndex = 12;
+            // 
+            // nudLegajo
+            // 
+            this.nudLegajo.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudLegajo.Location = new System.Drawing.Point(130, 62);
+            this.nudLegajo.Maximum = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
+            this.nudLegajo.Name = "nudLegajo";
+            this.nudLegajo.Size = new System.Drawing.Size(103, 23);
+            this.nudLegajo.TabIndex = 12;
+            // 
+            // nudCategoria
+            // 
+            this.nudCategoria.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCategoria.Location = new System.Drawing.Point(130, 93);
+            this.nudCategoria.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.nudCategoria.Name = "nudCategoria";
+            this.nudCategoria.Size = new System.Drawing.Size(103, 23);
+            this.nudCategoria.TabIndex = 12;
+            // 
+            // nudMes
+            // 
+            this.nudMes.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudMes.Location = new System.Drawing.Point(130, 156);
+            this.nudMes.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudMes.Name = "nudMes";
+            this.nudMes.Size = new System.Drawing.Size(103, 23);
+            this.nudMes.TabIndex = 12;
             // 
             // frmPrincipal
             // 
@@ -740,6 +752,10 @@
             this.grpDatosEmpleado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCodigoCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLegajo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -752,7 +768,6 @@
         private System.Windows.Forms.TextBox txtValorHoraExtra;
         private System.Windows.Forms.TextBox txtSueldoBasico;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtCodigoCategoria;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -760,10 +775,7 @@
         private System.Windows.Forms.Button btnCargarCategoria;
         private System.Windows.Forms.ListBox lstEmpleados;
         private System.Windows.Forms.GroupBox grpEmpleado;
-        private System.Windows.Forms.TextBox txtMes;
         private System.Windows.Forms.TextBox txtCantidadHorasExtras;
-        private System.Windows.Forms.TextBox txtCategoria;
-        private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -795,5 +807,9 @@
         private System.Windows.Forms.PictureBox picUsuario;
         private System.Windows.Forms.Label lblInformacionEmpleado;
         private System.Windows.Forms.Label lblInformacionCategoria;
+        private System.Windows.Forms.NumericUpDown nudCodigoCategoria;
+        private System.Windows.Forms.NumericUpDown nudMes;
+        private System.Windows.Forms.NumericUpDown nudCategoria;
+        private System.Windows.Forms.NumericUpDown nudLegajo;
     }
 }
